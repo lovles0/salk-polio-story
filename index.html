@@ -71,10 +71,15 @@ button{font-family:inherit}
 .page-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:26px;align-items:start}
 @media(max-width:820px){.page-grid{grid-template-columns:1fr;gap:20px}}
 .visual{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);position:sticky;top:78px}
-.visual-art{height:300px;position:relative;overflow:hidden;background:var(--card-2)}
+.visual-art{position:relative;overflow:hidden;background:#0e1a14}
+.visual-art img{width:100%;height:100%;object-fit:cover;display:block}
 .visual-art svg{width:100%;height:100%;display:block}
-.visual-art .tag-ov{position:absolute;font-size:11.5px;padding:4px 10px;border-radius:14px;background:rgba(255,255,255,.86);color:var(--ink);backdrop-filter:blur(3px);border:1px solid var(--line)}
-.visual-loc{position:absolute;left:12px;bottom:12px;font-size:12px;color:#f0eee2;background:rgba(25,40,30,.72);padding:5px 12px;border-radius:16px}
+.visual-art::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(14,26,20,0) 55%,rgba(14,26,20,.46) 100%)}
+.visual-art.photo{aspect-ratio:16/10}
+.visual-art.tall{aspect-ratio:4/3}
+.visual-art .tag-ov{position:absolute;font-size:11.5px;padding:4px 10px;border-radius:14px;background:rgba(255,255,255,.9);color:var(--ink);backdrop-filter:blur(3px);border:1px solid rgba(0,0,0,.08);z-index:2}
+.visual-loc{position:absolute;left:12px;bottom:12px;font-size:12px;color:#f0eee2;background:rgba(14,26,20,.78);padding:5px 12px;border-radius:16px;z-index:2}
+.visual-src{position:absolute;right:12px;top:10px;font-size:11px;color:rgba(240,238,226,.85);background:rgba(14,26,20,.6);padding:3px 10px;border-radius:14px;z-index:2}
 .visual-body{padding:18px 20px 20px}
 .visual-type{font-size:11px;letter-spacing:.12em;color:var(--accent-2);text-transform:uppercase;margin-bottom:10px}
 .reading-clues{border-top:1px dashed var(--line);padding-top:14px;margin-top:6px}
@@ -273,6 +278,36 @@ button{font-family:inherit}
 </section>
 
 <script>
+const IMAGES = {
+  "Iron lung CDC.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Iron_lung_CDC.jpg/960px-Iron_lung_CDC.jpg","credit":"Photo Credit: Content Providers(s): CDC/GHO/Mary Hilpertshauser","w":2100,"h":1388},
+  "Polio physical therapy.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Polio_physical_therapy.jpg/960px-Polio_physical_therapy.jpg","credit":"Photo Credit: Content Providers: CDC/Charles Farmer","w":3519,"h":4431},
+  "Children waiting to be vaccinated for smallpox and their pre-school examination in outer room of doctor's office.... - NARA - 540701.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Children_waiting_to_be_vaccinated_for_smallpox_and_their_pre-school_examination_in_outer_room_of_doctor%27s_office...._-_NARA_-_540701.jpg/960px-Children_waiting_to_be_vaccinated_for_smallpox_and_their_pre-school_examination_in_outer_room_of_doctor%27s_office...._-_NARA_-_540701.jpg","credit":"Russell Lee","w":3000,"h":2311},
+  "StateLibQld 2 164435 Children arriving at City Hall for vaccinations, Brisbane, 1951.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/StateLibQld_2_164435_Children_arriving_at_City_Hall_for_vaccinations%2C_Brisbane%2C_1951.jpg/960px-StateLibQld_2_164435_Children_arriving_at_City_Hall_for_vaccinations%2C_Brisbane%2C_1951.jpg","credit":"","w":1000,"h":752},
+  "Polio vaccine, 1956 (16635529011).jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Polio_vaccine%2C_1956_%2816635529011%29.jpg/960px-Polio_vaccine%2C_1956_%2816635529011%29.jpg","credit":"Mississippi Department of Archives and History","w":4253,"h":3101},
+  "Waiting to see Doctor (15630292036).jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Waiting_to_see_Doctor_%2815630292036%29.jpg/960px-Waiting_to_see_Doctor_%2815630292036%29.jpg","credit":"State Records NSW","w":1500,"h":1135},
+  "Dr Jonas Edward Salk (cropped) (cropped).jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Dr_Jonas_Edward_Salk_%28cropped%29_%28cropped%29.jpg/960px-Dr_Jonas_Edward_Salk_%28cropped%29_%28cropped%29.jpg","credit":"SAS Scandinavian Airlines","w":953,"h":1190},
+  "Polio Vaccination 1950s (cropped).jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Polio_Vaccination_1950s_%28cropped%29.jpg/960px-Polio_Vaccination_1950s_%28cropped%29.jpg","credit":"Myself","w":724,"h":512},
+  "Polio Virus.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Polio_Virus.jpg/960px-Polio_Virus.jpg","credit":"NIAID","w":1718,"h":1718},
+  "United States map (true scale US States; no rivers no lakes).svg": {"src":"https://upload.wikimedia.org/wikipedia/commons/c/c0/United_States_map_%28true_scale_US_States%3B_no_rivers_no_lakes%29.svg","credit":"Qbox673","w":512,"h":198},
+  "Main Street at night, Salt Lake City, Utah (69162).jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Main_Street_at_night%2C_Salt_Lake_City%2C_Utah_%2869162%29.jpg/960px-Main_Street_at_night%2C_Salt_Lake_City%2C_Utah_%2869162%29.jpg","credit":"Intermountain Tourist Supply Inc., Salt Lake, Utah","w":3336,"h":2155},
+  "Man using microscope in laboratory LCCN2016882745.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Man_using_microscope_in_laboratory_LCCN2016882745.jpg/960px-Man_using_microscope_in_laboratory_LCCN2016882745.jpg","credit":"Harris &amp; Ewing, photographer","w":5109,"h":3958},
+  "1956 Maastricht, Ziekenhuis St-Annadal, poliopatiëntjes in bad.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/1956_Maastricht%2C_Ziekenhuis_St-Annadal%2C_poliopati%C3%ABntjes_in_bad.jpg/960px-1956_Maastricht%2C_Ziekenhuis_St-Annadal%2C_poliopati%C3%ABntjes_in_bad.jpg","credit":"Unknown photographer (Het Zuiden)","w":790,"h":502},
+  "1918 Headlines from Chicago newspapers - Spanish flu - 1918 influenza pandemic.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/1918_Headlines_from_Chicago_newspapers_-_Spanish_flu_-_1918_influenza_pandemic.jpg/960px-1918_Headlines_from_Chicago_newspapers_-_Spanish_flu_-_1918_influenza_pandemic.jpg","credit":"Various newspapers in Chicago, Illinois, U.S., in 1918","w":1298,"h":932},
+  "Infantile paralysis 1.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Infantile_paralysis_1.jpg/960px-Infantile_paralysis_1.jpg","credit":"Alfred Loomis &amp; William Thompson","w":1381,"h":2455},
+  "Polio Virus - 52288060159.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Polio_Virus_-_52288060159.jpg/960px-Polio_Virus_-_52288060159.jpg","credit":"NIAID","w":1718,"h":1718},
+  "Polio Virus - 52287171002.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Polio_Virus_-_52287171002.jpg/960px-Polio_Virus_-_52287171002.jpg","credit":"NIAID","w":2016,"h":1689},
+  "Los Angeles City Hall at night with office lights turned on in the form on a cross for Christmas, 1947.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Los_Angeles_City_Hall_at_night_with_office_lights_turned_on_in_the_form_on_a_cross_for_Christmas%2C_1947.jpg/960px-Los_Angeles_City_Hall_at_night_with_office_lights_turned_on_in_the_form_on_a_cross_for_Christmas%2C_1947.jpg","credit":"Los Angeles Times","w":4913,"h":6147},
+  "Candle light 25.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Candle_light_25.jpg/960px-Candle_light_25.jpg","credit":"Kiruthikapalani","w":3060,"h":4080},
+  "Svend Ahrend Larsen at his desk by Elfelt & Co (1939).jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Svend_Ahrend_Larsen_at_his_desk_by_Elfelt_%26_Co_%281939%29.jpg/960px-Svend_Ahrend_Larsen_at_his_desk_by_Elfelt_%26_Co_%281939%29.jpg","credit":"Elfelt &amp; Co.","w":6550,"h":4561},
+  "Polio sequelle.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Polio_sequelle.jpg/960px-Polio_sequelle.jpg","credit":"Photo Credit: Content Providers(s): CDC","w":700,"h":1076},
+  "Polio lores134.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Polio_lores134.jpg/960px-Polio_lores134.jpg","credit":"Photo Credit: Content Providers(s): CDC/NIP/ Barbara Rice","w":982,"h":1494},
+  "Polio vaccine poster, 1958 (16014679784).jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Polio_vaccine_poster%2C_1958_%2816014679784%29.jpg/960px-Polio_vaccine_poster%2C_1958_%2816014679784%29.jpg","credit":"Mississippi Department of Archives and History","w":3039,"h":2193},
+  "Jonas Salk candid.jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Jonas_Salk_candid.jpg/960px-Jonas_Salk_candid.jpg","credit":"SAS Scandinavian Airlines","w":1121,"h":1517},
+  "Polio patient in iron lung (NCP 3631), National Museum of Health and Medicine (284972620).jpg": {"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Polio_patient_in_iron_lung_%28NCP_3631%29%2C_National_Museum_of_Health_and_Medicine_%28284972620%29.jpg/960px-Polio_patient_in_iron_lung_%28NCP_3631%29%2C_National_Museum_of_Health_and_Medicine_%28284972620%29.jpg","credit":"National Museum of Health and Medicine","w":2828,"h":2205},
+  "Vaccine Vial (NIH BioArt 536).png": {"src":"https://upload.wikimedia.org/wikipedia/commons/1/1e/Vaccine_Vial_%28NIH_BioArt_536%29.png","credit":"NIAID / BioArt","w":599,"h":1274},
+  "Vaccine Vial (NIH BioArt 535 - 636843).png": {"src":"https://upload.wikimedia.org/wikipedia/commons/e/e7/Vaccine_Vial_%28NIH_BioArt_535_-_636843%29.png","credit":"NIAID / BioArt","w":569,"h":1498}
+};
+
 var STORY = {
   id: "salk",
   title: "一百万针的等待",
@@ -283,9 +318,9 @@ var STORY = {
       note:"小儿麻痹症无药可治，每年美国约 3 万人感染、数千人瘫痪。索尔克在威斯康星医学院研发疫苗，但「有效」二字，必须先被证明。",
       pages:[
         { title:"没有解药的病", caption:"小儿麻痹症专挑 5 岁以下的孩子下手。它从肠道进入，却常攻击脊髓，留下一生的瘫痪。对 1954 年的父母来说，这是比死亡更可怕的判决。",
-          visual:{kind:"map",loc:"美国",labels:["5 岁以下","脊髓","无药可治"]}, clues:[["威胁","小儿麻痹症"],["缺口","没有有效疗法"]] },
+          visual:{img:"Polio Virus.jpg",kind:"map",loc:"美国",labels:["5 岁以下","脊髓","无药可治"]}, clues:[["威胁","小儿麻痹症"],["缺口","没有有效疗法"]] },
         { title:"一个实验室里的坚持", caption:"朱利叶斯·索尔克用了二十年，把疫苗研究推进到动物身上「似乎」有效。但动物有效，不等于人体有效——中间隔着最大的那道墙。",
-          visual:{kind:"portrait",loc:"威斯康星医学院",labels:["索尔克","动物试验","人体墙"]}, clues:[["人物","索尔克"],["障碍","动物≠人体"]] },
+          visual:{img:"Dr Jonas Edward Salk (cropped) (cropped).jpg",kind:"portrait",loc:"威斯康星医学院",labels:["索尔克","动物试验","人体墙"]}, clues:[["人物","索尔克"],["障碍","动物≠人体"]] },
         { title:"怎样才算证明有效", quiz:{
             prompt:"要证明疫苗「真的」有效，下面哪种研究设计最站得住？",
             options:[
@@ -299,24 +334,24 @@ var STORY = {
           }, reveal:{title:"立题：一百万针",text:"决定：随机分组。接下来要解决的是——怎么让两组「看起来一样」，好让比较干净。"}
         },
         { title:"招募 187 万儿童", caption:"1954 年 4 月，试验正式铺开：44 个州、187 万 6–12 岁儿童。这是史上最大规模的临床试验，每一个数字都将在日后被反复追问。",
-          visual:{kind:"map",loc:"44 个州",labels:["187 万儿童","6–12 岁","44 州"]}, clues:[["规模","187 万儿童"],["范围","44 个州"]] },
+          visual:{img:"United States map (true scale US States; no rivers no lakes).svg",kind:"map",loc:"44 个州",labels:["187 万儿童","6–12 岁","44 州"]}, clues:[["规模","187 万儿童"],["范围","44 个州"]] },
         { title:"三组人", caption:"研究团队把受试者分成三组：A 组打真疫苗，B 组打盐水，C 组既不注射、也没有「接种记录」。为什么需要三组，而不是两组？",
-          visual:{kind:"comparison",loc:"分组方案",labels:["A 真疫苗","B 盐水","C 无记录"]}, clues:[["A 组","真疫苗"],["B 组","盐水"],["C 组","无记录"]] },
+          visual:{img:"Polio vaccine, 1956 (16635529011).jpg",kind:"comparison",loc:"分组方案",labels:["A 真疫苗","B 盐水","C 无记录"]}, clues:[["A 组","真疫苗"],["B 组","盐水"],["C 组","无记录"]] },
         { title:"C 组的作用", caption:"C 组是「假记录对照」——他们没被注射，但档案里写着「已接种」。这一组专门用来回答：如果根本什么都不打，单纯「以为打了」会不会影响结果？",
-          visual:{kind:"document",loc:"C 组档案",labels:["未注射","记录为已接种"]}, clues:[["C 组","未注射"],["记录","假装已接种"]] },
+          visual:{img:"Vaccine Vial (NIH BioArt 536).png",kind:"document",loc:"C 组档案",labels:["未注射","记录为已接种"]}, clues:[["C 组","未注射"],["记录","假装已接种"]] },
         { title:"盲法", caption:"最关键的一步：医生、护士、甚至孩子和家属，都不知道谁拿了真疫苗、谁拿了盐水。只有加密的钥匙掌握在独立委员会手里。这叫「双盲」。",
-          visual:{kind:"document",loc:"双盲方案",labels:["医生不知","家属不知","独立钥匙"]}, clues:[["盲法","双方都不知道"],["钥匙","独立委员会"]] },
+          visual:{img:"Polio Vaccination 1950s (cropped).jpg",kind:"document",loc:"双盲方案",labels:["医生不知","家属不知","独立钥匙"]}, clues:[["盲法","双方都不知道"],["钥匙","独立委员会"]] },
         { title:"第一幕结束：针还没打下去", caption:"设计是完美的。可真正的问题才刚开始：当一百万针终于打完，数据完美得「不像话」，宣布胜利的时刻，到底到了没有？",
-          visual:{kind:"scene",loc:"试验启动",labels:["设计完成","等待数据"]}, clues:[["状态","设计完成"],["悬念","何时宣布"]] },
+          visual:{img:"Children waiting to be vaccinated for smallpox and their pre-school examination in outer room of doctor's office.... - NARA - 540701.jpg",kind:"scene",loc:"试验启动",labels:["设计完成","等待数据"]}, clues:[["状态","设计完成"],["悬念","何时宣布"]] },
       ]
     },
     { id:"a2", chapter:2, title:"两百万支疫苗", date:"1954 年夏", place:"美国 · 全国",
       note:"疫苗开始大规模生产与注射。两百万支疫苗里，真疫苗和「假」疫苗必须在外观上无法区分——这是双盲能成立的前提。",
       pages:[
         { title:"生产线全速运转", caption:"为给 187 万孩子注射，疫苗必须大规模生产。每一批都要经过检测，可「检测合格」不等于「完全无风险」——这一点，几个月后会被血淋淋地证明。",
-          visual:{kind:"scene",loc:"疫苗工厂",labels:["大规模生产","批批检测"]}, clues:[["规模","大规模生产"],["风险","检测≠零风险"]] },
+          visual:{img:"Iron lung CDC.jpg",kind:"scene",loc:"疫苗工厂",labels:["大规模生产","批批检测"]}, clues:[["规模","大规模生产"],["风险","检测≠零风险"]] },
         { title:"真与假，必须一模一样", caption:"A 组拿到的真疫苗，和 B 组拿到的盐水，瓶子、颜色、味道、标签，必须完全相同。如果打针的人「感觉」出区别，盲法就破了。",
-          visual:{kind:"comparison",loc:"真 vs 假",labels:["外观相同","无法区分"]}, clues:[["前提","外观完全一致"],["目的","维持盲法"]] },
+          visual:{img:"Vaccine Vial (NIH BioArt 535 - 636843).png",kind:"comparison",loc:"真 vs 假",labels:["外观相同","无法区分"]}, clues:[["前提","外观完全一致"],["目的","维持盲法"]] },
         { title:"安慰剂效应", quiz:{
             prompt:"B 组打的是盐水。为什么这一组「必须」存在，而不是省掉？",
             options:[
@@ -330,24 +365,24 @@ var STORY = {
           }, reveal:{title:"第二道对照",text:"盐水组不是为了凑数，而是为了「减去」心理与自然波动。没有它，你永远分不清疫苗和安慰剂。"}
         },
         { title:"注射季", caption:"夏天，一百万针陆续打进孩子的手臂。每一支都登记：哪个孩子、哪批疫苗、哪组、谁打的。这些记录，将是日后一切结论的地基。",
-          visual:{kind:"scene",loc:"注射现场",labels:["一百万针","逐支登记"]}, clues:[["动作","注射"],["记录","逐支登记"]] },
+          visual:{img:"StateLibQld 2 164435 Children arriving at City Hall for vaccinations, Brisbane, 1951.jpg",kind:"scene",loc:"注射现场",labels:["一百万针","逐支登记"]}, clues:[["动作","注射"],["记录","逐支登记"]] },
         { title:"等待", caption:"注射之后，是漫长的等待。霍乱、流感、其他感染，都可能让某些孩子生病。研究团队必须分清：哪些病是小儿麻痹，哪些不是。",
-          visual:{kind:"document",loc:"等待期",labels:["数月观察","区分病种"]}, clues:[["阶段","等待观察"],["难点","区分真阳性"]] },
+          visual:{img:"Waiting to see Doctor (15630292036).jpg",kind:"document",loc:"等待期",labels:["数月观察","区分病种"]}, clues:[["阶段","等待观察"],["难点","区分真阳性"]] },
         { title:"病例报告涌来", caption:"各地医院陆续报告「疑似小儿麻痹」病例。每一个都要被独立委员会复核：是不是真的？属于哪组？用的是哪批疫苗？",
-          visual:{kind:"document",loc:"病例复核",labels:["疑似病例","独立复核"]}, clues:[["数据","病例报告"],["流程","独立复核"]] },
+          visual:{img:"1956 Maastricht, Ziekenhuis St-Annadal, poliopatiëntjes in bad.jpg",kind:"document",loc:"病例复核",labels:["疑似病例","独立复核"]}, clues:[["数据","病例报告"],["流程","独立复核"]] },
         { title:"数字开始跳动", caption:"到秋天，初步数据出来了：A 组（真疫苗）的小儿麻痹发病率，远低于 B 组（盐水）。研究团队私下已经看到「有效」的轮廓——但还没敢对外说。",
-          visual:{kind:"chart",loc:"初步数据",labels:["A 组低","B 组高","趋势明显"]}, clues:[["初步","A 组显著低"],["克制","未对外宣布"]] },
+          visual:{img:"Man using microscope in laboratory LCCN2016882745.jpg",kind:"chart",loc:"初步数据",labels:["A 组低","B 组高","趋势明显"]}, clues:[["初步","A 组显著低"],["克制","未对外宣布"]] },
         { title:"第二幕结束：数据很好，但没人敢说", caption:"为什么克制？因为「初步」和「结论」之间，还隔着揭盲、复核、以及一个更难的伦理问题。",
-          visual:{kind:"scene",loc:"沉默的实验室",labels:["数据良好","保持沉默"]}, clues:[["状态","数据良好"],["张力","为何沉默"]] },
+          visual:{img:"Candle light 25.jpg",kind:"scene",loc:"沉默的实验室",labels:["数据良好","保持沉默"]}, clues:[["状态","数据良好"],["张力","为何沉默"]] },
       ]
     },
     { id:"a3", chapter:3, title:"揭盲风波", date:"1955 年 2 月", place:"美国 · 全国",
       note:"1955 年 2 月 21 日，因一起事故，研究委员会被迫提前揭盲。数据震惊了所有人：疫苗 100% 有效。可科学上，试验「还没完成」。",
       pages:[
         { title:"一起事故", caption:"纽约州拉法叶县，一个使用特定批次（Ciba 生产）疫苗的孩子群中，出现了 52 例瘫痪、3 例死亡。恐慌瞬间蔓延：疫苗，安全吗？",
-          visual:{kind:"scene",loc:"拉法叶县",labels:["52 例瘫痪","3 例死亡","恐慌"]}, clues:[["事故","拉法叶县"],["影响","52 瘫 3 死"]] },
+          visual:{img:"Polio physical therapy.jpg",kind:"scene",loc:"拉法叶县",labels:["52 例瘫痪","3 例死亡","恐慌"]}, clues:[["事故","拉法叶县"],["影响","52 瘫 3 死"]] },
         { title:"被迫提前揭盲", caption:"为回应公众恐慌，委员会决定打破双盲、提前查看 A 组与 B 组的真实对照。1955 年 2 月 21 日，钥匙被打开。",
-          visual:{kind:"document",loc:"揭盲之夜",labels:["打破双盲","提前查看"]}, clues:[["决定","提前揭盲"],["日期","1955.2.21"]] },
+          visual:{img:"Svend Ahrend Larsen at his desk by Elfelt & Co (1939).jpg",kind:"document",loc:"揭盲之夜",labels:["打破双盲","提前查看"]}, clues:[["决定","提前揭盲"],["日期","1955.2.21"]] },
         { title:"100% 有效", quiz:{
             prompt:"揭盲数据显示疫苗 100% 有效。此时，最稳妥的下一步是什么？",
             options:[
@@ -361,24 +396,24 @@ var STORY = {
           }, reveal:{title:"克制：公布但不宣布",text:"团队选择公布数据、说明局限，同时彻查事故。科学的可信，正来自这种「不抢跑」。"}
         },
         { title:"彻查事故", caption:"调查指向 Ciba 那一批次的生产污染，而非疫苗设计本身。但「污染批次」和「疫苗本身」是两件事，必须分开说——这直接影响「该不该继续推广」。",
-          visual:{kind:"document",loc:"事故调查",labels:["批次污染","非设计缺陷"]}, clues:[["原因","批次污染"],["区分","批次 vs 设计"]] },
+          visual:{img:"Infantile paralysis 1.jpg",kind:"document",loc:"事故调查",labels:["批次污染","非设计缺陷"]}, clues:[["原因","批次污染"],["区分","批次 vs 设计"]] },
         { title:"舆论的撕裂", caption:"一边是「数据 100% 有效」，一边是「有孩子死了」。报纸、家长、政客，声音各不相同。研究团队必须在噪音里守住一条线：只说证据支持的。",
-          visual:{kind:"scene",loc:"舆论场",labels:["有效?","安全?","噪音"]}, clues:[["压力","舆论撕裂"],["原则","只说证据"]] },
+          visual:{img:"Main Street at night, Salt Lake City, Utah (69162).jpg",kind:"scene",loc:"舆论场",labels:["有效?","安全?","噪音"]}, clues:[["压力","舆论撕裂"],["原则","只说证据"]] },
         { title:"独立委员会的复核", caption:"所有病例被逐一复核：哪些是真正的小儿麻痹？哪些是其他病被误报？哪些与事故批次相关？复核完成前，任何「最终结论」都只是暂时的。",
-          visual:{kind:"document",loc:"复核",labels:["逐一核查","区分误报"]}, clues:[["流程","逐一复核"],["状态","结论暂挂"]] },
+          visual:{img:"Polio Virus - 52288060159.jpg",kind:"document",loc:"复核",labels:["逐一核查","区分误报"]}, clues:[["流程","逐一复核"],["状态","结论暂挂"]] },
         { title:"数字终于稳了", caption:"到 4 月，复核基本完成。真实数据浮出水面：疫苗对小儿麻痹的保护效果约 90%（不是 100%——揭盲的「完美」包含了统计波动与未复核病例）。事故批次的问题被隔离。",
-          visual:{kind:"chart",loc:"最终数据",labels:["约 90% 有效","事故已隔离"]}, clues:[["修正","90% 而非 100%"],["事故","已隔离"]] },
+          visual:{img:"Polio Virus - 52287171002.jpg",kind:"chart",loc:"最终数据",labels:["约 90% 有效","事故已隔离"]}, clues:[["修正","90% 而非 100%"],["事故","已隔离"]] },
         { title:"第三幕结束：真相需要时间", caption:"「100%」是揭盲那一夜的光，「90%」是复核之后的实。科学从不抢跑，它等。",
-          visual:{kind:"scene",loc:"黎明前",labels:["100% 是光","90% 是实"]}, clues:[["教训","抢跑的代价"],["状态","真相渐明"]] },
+          visual:{img:"Los Angeles City Hall at night with office lights turned on in the form on a cross for Christmas, 1947.jpg",kind:"scene",loc:"黎明前",labels:["100% 是光","90% 是实"]}, clues:[["教训","抢跑的代价"],["状态","真相渐明"]] },
       ]
     },
     { id:"a4", chapter:4, title:"数字说话了", date:"1955 年 4 月", place:"美国 · 全国",
       note:"1955 年 4 月 12 日，《纽约时报》头版宣布索尔克疫苗有效。但「有效」后面，跟着一个必须说清楚的「但是」。",
       pages:[
         { title:"头版", caption:"1955 年 4 月 12 日，《纽约时报》头版：索尔克脊髓灰质炎疫苗被证实有效。消息传遍全国，等待多年的父母终于松了一口气。",
-          visual:{kind:"document",loc:"纽约时报",labels:["头版","证实有效"]}, clues:[["日期","1955.4.12"],["事件","宣布有效"]] },
+          visual:{img:"1918 Headlines from Chicago newspapers - Spanish flu - 1918 influenza pandemic.jpg",kind:"document",loc:"纽约时报",labels:["头版","证实有效"]}, clues:[["日期","1955.4.12"],["事件","宣布有效"]] },
         { title:"但「有效」后面跟着「但是」", caption:"声明里有一句话，和「有效」同样重要：在拉法叶县使用特定污染批次的孩子中，出现了额外的小儿麻痹病例。这是「有效」必须携带的限定。",
-          visual:{kind:"document",loc:"声明全文",labels:["有效","但是…"]}, clues:[["结论","有效"],["限定","批次事故"]] },
+          visual:{img:"Polio sequelle.jpg",kind:"document",loc:"声明全文",labels:["有效","但是…"]}, clues:[["结论","有效"],["限定","批次事故"]] },
         { title:"风险与收益", quiz:{
             prompt:"最终数据：疫苗约 90% 有效，但有个别批次污染导致额外病例。面对「有效但有风险」，最稳妥的结论是？",
             options:[
@@ -392,13 +427,13 @@ var STORY = {
           }, reveal:{title:"结案：数字说话了",text:"90% 有效 + 事故可隔离 = 继续推广。医学决策的本质，从来不是「零风险」，而是「权衡」。"}
         },
         { title:"隔离与推广", caption:"污染批次被召回隔离，合格批次继续供应。小儿麻痹发病率在接下来的几年里急剧下降——这是「权衡」二字换来的曲线。",
-          visual:{kind:"chart",loc:"发病率曲线",labels:["急剧下降","合格批次"]}, clues:[["动作","隔离+推广"],["结果","发病率下降"]] },
+          visual:{img:"Polio lores134.jpg",kind:"chart",loc:"发病率曲线",labels:["急剧下降","合格批次"]}, clues:[["动作","隔离+推广"],["结果","发病率下降"]] },
         { title:"一个方法论的遗产", caption:"这次试验留下的不只是疫苗，而是一套判断「什么才算真的有效」的方法：随机、对照、盲法、复核、权衡。后世每一次「新疗法/新药该不该用」，都在重走这条线。",
-          visual:{kind:"document",loc:"方法论遗产",labels:["随机","对照","盲法","权衡"]}, clues:[["遗产","方法学"],["意义","可复用"]] },
+          visual:{img:"Polio vaccine poster, 1958 (16014679784).jpg",kind:"document",loc:"方法论遗产",labels:["随机","对照","盲法","权衡"]}, clues:[["遗产","方法学"],["意义","可复用"]] },
         { title:"尾声：那些没被看见的孩子", caption:"187 万里，绝大多数孩子平安。可我们不会忘记拉法叶县的 3 个名字。科学的进步，从来都带着它没能保护到的那一部分的重量。",
-          visual:{kind:"scene",loc:"尾声",labels:["多数平安","少数被记住"]}, clues:[["纪念","3 个名字"],["重量","进步的代价"]] },
+          visual:{img:"Polio patient in iron lung (NCP 3631), National Museum of Health and Medicine (284972620).jpg",kind:"scene",loc:"尾声",labels:["多数平安","少数被记住"]}, clues:[["纪念","3 个名字"],["重量","进步的代价"]] },
         { title:"你的判断，留下了痕迹", caption:"从随机分组到风险权衡，你在 4 个岔路口做的选择，构成了这份结案报告。数据会随时间修正，但「如何判断」的能力，留了下来。",
-          visual:{kind:"scene",loc:"结案",labels:["4 处判断","报告成形"]}, clues:[["回顾","你的 4 次选择"],["落点","判断力"]] },
+          visual:{img:"Jonas Salk candid.jpg",kind:"scene",loc:"结案",labels:["4 处判断","报告成形"]}, clues:[["回顾","你的 4 次选择"],["落点","判断力"]] },
       ]
     },
   ]
@@ -445,24 +480,30 @@ function renderShelf(){
 
 function v_type(k){ return ({map:"地理",portrait:"人物",comparison:"对照",document:"文档",scene:"场景",chart:"数据"})[k]||"场景"; }
 
-function visualSVG(p){
+function visualPhoto(p){
   var v = p.visual || {};
+  var img = v.img ? IMAGES[v.img] : null;
   var labels = v.labels || [];
-  var pos = [{x:24,y:36},{x:24,y:224},{x:430,y:36},{x:430,y:224},{x:230,y:130}];
+  var pos = [{x:14,y:14},{x:14,y:64},{x:14,y:114},{x:14,y:164},{x:14,y:214}];
   var chips = labels.slice(0,5).map(function(t,i){
     return '<span class="tag-ov" style="left:'+pos[i].x+'px;top:'+pos[i].y+'px">'+t+'</span>';
   }).join("");
-  var bases = {
-    map: '<rect width="620" height="300" fill="#2f6245"/><g fill="none" stroke="#dce99c" stroke-width="1.5" opacity=".5"><circle cx="310" cy="150" r="90"/><circle cx="310" cy="150" r="140"/><line x1="170" y1="150" x2="450" y2="150"/><line x1="310" y1="10" x2="310" y2="290"/></g>',
-    portrait: '<rect width="620" height="300" fill="#19392f"/><circle cx="310" cy="120" r="55" fill="none" stroke="#dce99c" stroke-width="3"/><path d="M230 300 Q310 190 390 300" fill="none" stroke="#dce99c" stroke-width="3"/>',
-    comparison: '<rect width="620" height="300" fill="#26463a"/><line x1="310" y1="20" x2="310" y2="280" stroke="#dce99c" stroke-width="2"/><rect x="60" y="90" width="180" height="120" rx="8" fill="none" stroke="#dce99c" stroke-width="2.5"/><rect x="380" y="90" width="180" height="120" rx="8" fill="none" stroke="#ece9db" stroke-width="2.5"/>',
-    document: '<rect width="620" height="300" fill="#efece0"/><rect x="120" y="50" width="380" height="200" rx="6" fill="#fbfaf5" stroke="#cfd6c2" stroke-width="2"/><g stroke="#cfd6c2" stroke-width="2"><line x1="150" y1="90" x2="470" y2="90"/><line x1="150" y1="120" x2="470" y2="120"/><line x1="150" y1="150" x2="400" y2="150"/><line x1="150" y1="180" x2="470" y2="180"/></g>',
-    scene: '<rect width="620" height="300" fill="#3a7d5e"/><g fill="#dce99c" opacity=".8"><circle cx="150" cy="200" r="18"/><circle cx="240" cy="210" r="22"/><circle cx="340" cy="195" r="16"/><circle cx="430" cy="208" r="20"/></g><line x1="0" y1="240" x2="620" y2="240" stroke="#19392f" stroke-width="3"/>',
-    chart: '<rect width="620" height="300" fill="#fbfaf5"/><g stroke="#cfd6c2" stroke-width="1.5"><line x1="70" y1="40" x2="70" y2="240"/><line x1="70" y1="240" x2="560" y2="240"/></g><rect x="120" y="140" width="70" height="100" fill="#2f6245"/><rect x="230" y="90" width="70" height="150" fill="#7c835e"/><rect x="340" y="60" width="70" height="180" fill="#2f6245"/><rect x="450" y="110" width="70" height="130" fill="#7c835e"/>'
-  };
-  var base = bases[v.kind] || '<rect width="620" height="300" fill="#26463a"/>';
-  return '<svg viewBox="0 0 620 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + base +
-    '<text x="18" y="286" fill="#ece9db" font-size="13" font-family="sans-serif" opacity=".85">' + (v.loc||"") + '</text></svg><div>' + chips + '</div>';
+  var portrait = img && (img.h > img.w * 1.15);
+  var cls = "visual-art " + (portrait ? "tall" : "photo");
+  if(img){
+    return '<div class="'+cls+'"><img src="'+img.src+'" alt="'+(v.loc||"")+'" loading="lazy"/>' +
+      (img.credit ? '<span class="visual-src">'+img.credit+'</span>' : '') +
+      '<span class="visual-loc">' + (v.loc||"") + '</span><div>' + chips + '</div></div>';
+  }
+  // quiz fallback: keep a minimal elegant dark plate
+  return '<div class="visual-art photo"><svg viewBox="0 0 620 388" aria-hidden="true">' +
+    '<rect width="620" height="388" fill="#12281e"/>' +
+    '<g fill="none" stroke="#3f6b52" stroke-width="1.2" opacity=".55">' +
+    '<circle cx="310" cy="194" r="110"/><circle cx="310" cy="194" r="160"/>' +
+    '<line x1="120" y1="194" x2="500" y2="194"/><line x1="310" y1="20" x2="310" y2="368"/>' +
+    '<circle cx="310" cy="194" r="3" fill="#7c835e" stroke="none"/></g>' +
+    '<text x="310" y="340" text-anchor="middle" fill="#7c835e" font-size="13" font-family="Georgia,serif" letter-spacing="4">JUDGMENT</text></svg>' +
+    '<span class="visual-loc">' + (p.scene && p.scene.place || v.loc || "") + '</span><div>' + chips + '</div></div>';
 }
 
 function isActEnd(p){
@@ -483,11 +524,11 @@ function renderReader(){
   var lastChap = sc.chapter === STORY.scenes.length;
   var nextSceneTitle = lastChap ? "结案报告" : STORY.scenes[sc.chapter].title;
   var html = '<div class="visual">' +
-    '<div class="visual-art">' + visualSVG(p) + '<span class="visual-loc">' + sc.place + '</span></div>' +
-    '<div class="visual-body"><div class="visual-type">叙事插画 · ' + v_type(p.visual && p.visual.kind) + '</div>' +
+    visualPhoto(p) +
+    '<div class="visual-body"><div class="visual-type">档案影像 · ' + v_type(p.visual && p.visual.kind) + '</div>' +
     '<div class="reading-clues"><h4>读图线索</h4>' +
     (p.clues||[]).map(function(c){return '<div class="clue-row"><dt>'+c[0]+'</dt><dd>'+c[1]+'</dd></div>';}).join("") +
-    '</div><p class="visual-note">画面为概念示意图，并非历史照片；人物与场景经过简化，研究结论以文献为准。</p></div></div>' +
+    '</div><p class="visual-note">影像来自 Wikimedia Commons 公开档案，为示意性配图，与本页场景不完全对应；研究结论以文献为准。图源署名见图片右上角。</p></div></div>' +
     '<div class="prose">' +
     '<div class="chapter-kicker"><span>第 ' + actNo + ' 幕</span><span class="date">' + sc.date + '</span><span class="dot"></span><span>' + sc.title + '</span></div>' +
     '<h1>' + p.title + '</h1><p class="caption">' + p.caption + '</p><p class="scene-note">' + sc.note + '</p>' +
