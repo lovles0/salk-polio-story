@@ -532,7 +532,7 @@ function renderReader(){
     '<div class="prose">' +
     '<div class="chapter-kicker"><span>第 ' + actNo + ' 幕</span><span class="date">' + sc.date + '</span><span class="dot"></span><span>' + sc.title + '</span></div>' +
     '<h1>' + p.title + '</h1><p class="caption">' + p.caption + '</p><p class="scene-note">' + sc.note + '</p>' +
-    (p.quiz ? renderQuiz(p) : "<p class=\"caption\">" + p.caption + "</p>") +
+    (p.quiz ? renderQuiz(p) : "") +
     (p.quiz && state.answers[p.id] && state.answers[p.id].acknowledged ? renderReveal(p) : "") +
     (isActEnd(p) ? '<div class="act-end"><div class="kicker">第 ' + actNo + ' 幕结束</div><h3>' + sc.title + '</h3><p>' + p.caption + '</p><p style="margin-top:12px;font-size:13px;opacity:.8">下一幕：' + nextSceneTitle + '</p></div>' : "") +
     '</div>';
