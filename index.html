@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#f4f2ea"/>
-<title>一百万针的等待 · 脊髓灰质炎疫苗试验</title>
-<meta name="description" content="1954 年，44 个州、187 万儿童、一百万针。在揭盲数据宣布 100% 有效之前，由你判断：现在，能宣布胜利吗？"/>
+<title>一百万针的等待 · 复核 1954 年脊髓灰质炎疫苗试验</title>
+<meta name="description" content="1954 年，44 个州、183 万名儿童参加脊髓灰质炎疫苗试验。读真实数据、辨认偏差，并在 1955 年的安全事故中作出风险判断。"/>
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiMxOTM5MmYiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjI4IiByPSIxNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGNlOTljIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMzIiIHkxPSI0NCIgeDI9IjMyIiB5Mj0iNTYiIHN0cm9rZT0iI2RjZTk5YyIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iMzIiIGN5PSI1OCIgcj0iMyIgZmlsbD0iI2RjZTk5YyIvPjwvc3ZnPg=="/>
 <style>
 :root{
@@ -38,7 +38,7 @@ button{font-family:inherit}
 .tool{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:13px;color:var(--ink-soft);cursor:pointer;display:flex;align-items:center;gap:7px;transition:.15s}
 .tool:hover{border-color:var(--accent-soft);color:var(--ink)}
 .tool b{color:var(--accent-2);font-family:var(--serif)}
-.shelf{padding:54px 0 40px}
+.shelf{padding-top:54px;padding-bottom:40px}
 .shelf-kicker{color:var(--accent-2);font-size:14px;letter-spacing:.04em;margin-bottom:14px}
 .shelf h1{font-size:clamp(30px,5vw,46px);margin-bottom:16px}
 .shelf-sub{max-width:640px;color:var(--ink-soft);font-size:17px}
@@ -59,7 +59,11 @@ button{font-family:inherit}
 .btn-primary:hover{background:#265238;transform:translateY(-1px)}
 .btn-ghost{background:none;border:1px solid var(--line);border-radius:10px;padding:12px 22px;font-size:14px;color:var(--ink-soft);cursor:pointer;transition:.15s}
 .btn-ghost:hover{border-color:var(--accent-soft);color:var(--ink)}
-.shelf-foot{margin-top:34px;font-size:13px;color:var(--ink-soft);line-height:1.9;max-width:680px}
+.shelf-foot{margin-top:34px;font-size:13px;color:var(--ink-soft);line-height:1.9;max-width:760px}
+.sources{margin-top:22px;max-width:760px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--ink-soft);font-size:13px}
+.sources summary{cursor:pointer;color:var(--accent);font-weight:600}
+.sources ul{margin:12px 0 0;padding-left:20px}
+.sources a{color:var(--accent);text-underline-offset:3px}
 .reader{padding-bottom:60px}
 .reader-head{padding:14px 0 10px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .reader-title{font-family:var(--serif);font-size:17px}
@@ -69,7 +73,6 @@ button{font-family:inherit}
 .reader-practice{font-size:13px;color:var(--ink-soft);margin-top:8px}
 .reader-practice b{color:var(--accent-2)}
 .page-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:26px;align-items:start}
-@media(max-width:820px){.page-grid{grid-template-columns:1fr;gap:20px}}
 .visual{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);position:sticky;top:78px}
 .visual-art{position:relative;overflow:hidden;background:#0e1a14}
 .visual-art img{width:100%;height:100%;object-fit:cover;display:block}
@@ -88,7 +91,16 @@ button{font-family:inherit}
 .clue-row dt{color:var(--accent-2);font-weight:600;flex:none;width:52px}
 .clue-row dd{margin:0;color:var(--ink)}
 .visual-note{font-size:12px;color:var(--ink-soft);margin-top:12px;font-style:italic}
+.evidence-board{min-height:310px;padding:28px 24px;background:linear-gradient(145deg,#19392f,#2f6245);color:#f4f2ea;display:flex;flex-direction:column;justify-content:center}
+.evidence-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#dce99c;margin-bottom:8px}
+.evidence-title{font-family:var(--serif);font-size:24px;line-height:1.35;margin-bottom:20px}
+.evidence-rows{display:grid;gap:10px}
+.evidence-row{display:grid;grid-template-columns:minmax(90px,1fr) auto auto;gap:12px;align-items:center;padding:10px 12px;border:1px solid rgba(255,255,255,.18);border-radius:9px;background:rgba(255,255,255,.06);font-size:13px}
+.evidence-row strong{font-family:var(--serif);font-size:19px;color:#dce99c;font-variant-numeric:tabular-nums}
+.evidence-row small{color:rgba(244,242,234,.76);font-variant-numeric:tabular-nums}
+.evidence-foot{margin-top:16px;font-size:12px;color:rgba(244,242,234,.74);line-height:1.6}
 .prose h1{font-size:26px;margin-bottom:10px}
+.prose h1:focus{outline:none}
 .chapter-kicker{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--accent-2);margin-bottom:14px}
 .chapter-kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2)}
 .chapter-kicker .date{color:var(--ink-soft)}
@@ -102,7 +114,7 @@ button{font-family:inherit}
 .options{display:flex;flex-direction:column;gap:10px}
 .opt{display:flex;gap:14px;align-items:flex-start;text-align:left;width:100%;background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:14px 16px;cursor:pointer;transition:.15s;font-size:15px;color:var(--ink)}
 .opt:hover:not(:disabled){border-color:var(--accent-soft);transform:translateX(2px)}
-.opt:disabled{cursor:default;opacity:.72}
+.opt:disabled{cursor:default}
 .opt-key{flex:none;width:28px;height:28px;border-radius:8px;background:var(--card-2);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-weight:600;color:var(--ink-soft)}
 .opt-body{flex:1;display:flex;flex-direction:column;gap:6px}
 .opt-label{font-weight:500}
@@ -119,6 +131,7 @@ button{font-family:inherit}
 .fb-wrong{background:#f7ece9;border:1px solid #e0b8b0;border-radius:10px;padding:14px 16px}
 .fb-title{font-family:var(--serif);font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
 .fb-correct .fb-title{color:var(--good)}
+.fb-wrong .fb-title{color:var(--bad)}
 .fb-body{font-size:14px;color:var(--ink-soft);line-height:1.8}
 .quiz-hint{margin-top:14px}
 .quiz-hint button{background:none;border:0;color:var(--accent-2);font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:0}
@@ -141,12 +154,13 @@ button{font-family:inherit}
 .nav-btn.primary{background:var(--accent);color:#f2f0e6;border-color:var(--accent)}
 .nav-btn.primary:hover:not(:disabled){background:#265238}
 .bookmark-note{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:16px}
-.results{padding:54px 0 60px}
+.results{padding-top:54px;padding-bottom:60px}
 .results h1{font-size:30px;margin-bottom:10px}
 .results-sub{color:var(--ink-soft);margin-bottom:30px;font-size:15px}
 .score-hero{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:var(--shadow);display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .score-num{font-family:var(--serif);font-size:72px;font-weight:600;color:var(--accent);line-height:1;letter-spacing:-3px}
-.score-num span{font-size:22px;letter-spacing:0;color:var(--ink-soft);margin-left:6px}
+.score-num #scoreNum{font-size:72px;color:var(--accent)}
+.score-num>span:last-child{font-size:22px;letter-spacing:0;color:var(--ink-soft);margin-left:6px}
 .score-desc{flex:1;min-width:220px}
 .score-desc h2{font-size:20px;margin-bottom:8px}
 .score-desc p{font-size:14.5px;color:var(--ink-soft);margin:0}
@@ -167,7 +181,31 @@ button{font-family:inherit}
 .badge.corrected{background:#f5f0d8;color:#7a6a2f}
 .badge.hinted{background:#efe9dc;color:var(--warn)}
 .results-actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.clue-dialog{width:min(560px,calc(100vw - 32px));max-height:min(720px,calc(100vh - 40px));border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);padding:0;box-shadow:0 18px 60px rgba(20,30,22,.25)}
+.clue-dialog::backdrop{background:rgba(14,26,20,.55);backdrop-filter:blur(2px)}
+.clue-dialog-in{padding:24px}
+.clue-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+.clue-dialog-head h2{font-size:22px;margin:0}
+.clue-close{border:1px solid var(--line);background:var(--card-2);border-radius:8px;padding:7px 11px;cursor:pointer;color:var(--ink-soft)}
+.clue-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.clue-list li{border-left:3px solid var(--accent);background:var(--card-2);padding:12px 14px;border-radius:0 9px 9px 0}
+.clue-list b{display:block;font-family:var(--serif);margin-bottom:3px}
+.clue-empty{color:var(--ink-soft)}
+@media(max-width:820px){
+  .page-grid{grid-template-columns:1fr;gap:20px}
+  .visual{position:static;top:auto}
+}
 @media(max-width:560px){
+  .wrap{padding-left:18px;padding-right:18px}
+  .brand-txt span{display:none}
+  .story-card-body{padding:22px 20px 26px}
+  .evidence-board{min-height:280px;padding:24px 18px}
+  .evidence-row{grid-template-columns:1fr auto;gap:4px 10px}
+  .evidence-row small{grid-column:1/-1}
+  .quiz{padding:19px 17px}
+  .page-nav{display:grid;grid-template-columns:1fr 1fr}
+  .page-nav .primary{grid-column:1/-1;justify-content:center;grid-row:1}
+  .nav-btn{justify-content:center;padding:11px 12px}
   .score-hero{gap:18px}
   .metrics{grid-template-columns:1fr;gap:14px}
   .metrics>div{border-right:0;padding:0}
@@ -191,11 +229,11 @@ button{font-family:inherit}
 <section class="view active" id="shelfView">
   <div class="wrap shelf">
     <p class="shelf-kicker">公共卫生 · 疫苗试验 · 单一故事</p>
-    <h1>在揭盲数据宣布 100% 有效之前，<br/>由你判断：现在，能宣布胜利吗？</h1>
-    <p class="shelf-sub">1954 年春天，美国 44 个州、187 万儿童、一百万针脊髓灰质炎疫苗。这是历史上最大规模的临床试验。当揭盲的针数刚够、数据已经完美——科学上，它「完成」了吗？</p>
+    <h1>183 万名儿童之后，<br/>数据真的证明疫苗有效吗？</h1>
+    <p class="shelf-sub">1954 年，美国 44 个州开展了当时史上规模最大的疫苗试验。两套对照方案、33 对 115 例瘫痪病例，以及一年后突如其来的制造事故——由你复核证据，而不是追随结论。</p>
     <div class="shelf-route">
       <b>一条调查线：从分组到宣布</b>
-      <span>随机化 → 安慰剂对照 → 揭盲伦理 → 风险权衡</span>
+      <span>候选疫苗 → 两套对照 → 读真实数据 → 事故与监管</span>
     </div>
     <article class="story-card">
       <div class="story-card-art">
@@ -223,13 +261,13 @@ button{font-family:inherit}
       <div class="story-card-body">
         <p class="shelf-kicker" style="margin-bottom:6px">公共卫生 · 疫苗试验</p>
         <h2 style="font-size:28px;margin-bottom:8px">一百万针的等待</h2>
-        <p style="color:var(--ink-soft);max-width:620px">数据已经完美，可试验还没做完。揭盲的那一夜，整个国家都在等一个决定。</p>
+        <p style="color:var(--ink-soft);max-width:620px">同一场试验用了两套设计。数字相同，因果结论却未必一样；而试验结束，也不等于风险从此消失。</p>
         <div class="story-card-tags">
           <span class="tag">公共卫生 · 疫苗试验</span>
-          <span class="tag diff">基础 2/5</span>
-          <span class="tag">25–30 分钟</span>
+          <span class="tag diff">进阶 3/5</span>
+          <span class="tag">15–20 分钟</span>
         </div>
-        <p class="story-card-practice">核心练习：<b>设计对照</b> —— 怎样才算真的有效</p>
+        <p class="story-card-practice">核心练习：<b>因果推断</b> —— 从对照、数据到风险决策</p>
         <div class="story-card-meta"><span id="shelfProgress">尚未开始 · 32 幅分镜 · 4 处推理</span></div>
         <button class="btn-primary" onclick="startStory()">翻开故事 <span aria-hidden="true">→</span></button>
       </div>
@@ -237,8 +275,18 @@ button{font-family:inherit}
     <p class="shelf-foot">
       每道题都依据当时掌握的证据判断；答错后看解析、再作答，选对后继续。需要时可查看提示。<br/>
       关键记录由你亲手翻开；每关独立保存书签和成绩，可随时回看。<br/>
-      本故事以 1954 年索尔克脊髓灰质炎疫苗试验为原型，人物与细节经过简化，研究结论以历史文献为准。
+      故事按史实时间线改编；人数、病例数与关键日期取自 Francis 试验报告、密歇根大学及美国 CDC 档案。
     </p>
+    <details class="sources">
+      <summary>史料、数据与图片说明</summary>
+      <ul>
+        <li><a href="https://sph.umich.edu/polio/" target="_blank" rel="noopener">密歇根大学：1955 年试验结果与原始新闻稿</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1114166/" target="_blank" rel="noopener">两套试验设计的历史研究</a></li>
+        <li><a href="https://www.cdc.gov/vaccine-safety/historical-concerns/index.html" target="_blank" rel="noopener">CDC：Cutter 事故回顾</a></li>
+        <li><a href="https://stacks.cdc.gov/view/cdc/43902/cdc_43902_DS1.pdf" target="_blank" rel="noopener">1956 年 Cutter 事故流行病学报告</a></li>
+        <li>配图来自 Wikimedia Commons 公开档案，为示意性史料；具体署名显示于图片右上角。</li>
+      </ul>
+    </details>
   </div>
 </section>
 
@@ -247,9 +295,9 @@ button{font-family:inherit}
     <div class="reader-head">
       <div>
         <div class="reader-title">一百万针的等待</div>
-        <div class="reader-progress" id="readerProgress">01 / 32</div>
+        <div class="reader-progress" id="readerProgress" role="status" aria-live="polite">01 / 32</div>
         <div class="reader-bar"><span id="readerBarFill" style="width:3%"></span></div>
-        <div class="reader-practice">本关练习：<b>设计对照</b> · 怎样才算真的有效</div>
+        <div class="reader-practice">本关练习：<b>因果推断</b> · 从对照、数据到风险决策</div>
       </div>
       <button class="btn-ghost" onclick="goShelf()">全部故事</button>
     </div>
@@ -263,7 +311,7 @@ button{font-family:inherit}
   <div class="wrap results">
     <p class="shelf-kicker">调查完成</p>
     <h1>结案报告</h1>
-    <p class="results-sub">187 万儿童、一百万针、4 处关键判断。下面是你这一路的记录。</p>
+    <p class="results-sub">183 万名儿童、两套试验设计、4 处关键判断。下面是你的证据链。</p>
     <div class="score-hero">
       <div class="score-num"><span id="scoreNum">0</span><span>分</span></div>
       <div class="score-desc"><h2 id="scoreTitle">—</h2><p id="scoreDesc">—</p></div>
@@ -276,6 +324,16 @@ button{font-family:inherit}
     </div>
   </div>
 </section>
+
+<dialog class="clue-dialog" id="clueDialog" aria-labelledby="clueDialogTitle">
+  <div class="clue-dialog-in">
+    <div class="clue-dialog-head">
+      <div><p class="shelf-kicker" style="margin-bottom:4px">已确认的判断</p><h2 id="clueDialogTitle">证据本</h2></div>
+      <button class="clue-close" onclick="closeClues()" aria-label="关闭证据本">关闭</button>
+    </div>
+    <div id="clueDialogBody"></div>
+  </div>
+</dialog>
 
 <script>
 const IMAGES = {
@@ -311,145 +369,136 @@ const IMAGES = {
 var STORY = {
   id: "salk",
   title: "一百万针的等待",
-  practice: "设计对照",
+  practice: "因果推断",
   totalPanels: 32,
   scenes: [
-    { id:"a1", chapter:1, title:"看不见的敌人", date:"1954 年春", place:"美国 · 全国",
-      note:"小儿麻痹症无药可治，每年美国约 3 万人感染、数千人瘫痪。索尔克在威斯康星医学院研发疫苗，但「有效」二字，必须先被证明。",
+    { id:"a1", chapter:1, title:"候选疫苗", date:"1952—1954", place:"美国 · 匹兹堡",
+      note:"索尔克团队在匹兹堡大学研制灭活脊髓灰质炎疫苗。早期人体研究显示它能诱导抗体，但「产生抗体」不等于「在真实世界防止瘫痪」。",
       pages:[
-        { title:"没有解药的病", caption:"小儿麻痹症专挑 5 岁以下的孩子下手。它从肠道进入，却常攻击脊髓，留下一生的瘫痪。对 1954 年的父母来说，这是比死亡更可怕的判决。",
-          visual:{img:"Polio Virus.jpg",kind:"map",loc:"美国",labels:["5 岁以下","脊髓","无药可治"]}, clues:[["威胁","小儿麻痹症"],["缺口","没有有效疗法"]] },
-        { title:"一个实验室里的坚持", caption:"朱利叶斯·索尔克用了二十年，把疫苗研究推进到动物身上「似乎」有效。但动物有效，不等于人体有效——中间隔着最大的那道墙。",
-          visual:{img:"Dr Jonas Edward Salk (cropped) (cropped).jpg",kind:"portrait",loc:"威斯康星医学院",labels:["索尔克","动物试验","人体墙"]}, clues:[["人物","索尔克"],["障碍","动物≠人体"]] },
-        { title:"怎样才算证明有效", quiz:{
-            prompt:"要证明疫苗「真的」有效，下面哪种研究设计最站得住？",
+        { title:"每年夏天的恐惧", caption:"20 世纪中叶，美国每年都有数以万计的脊髓灰质炎病例。多数感染不会瘫痪，但一旦病毒侵入神经系统，孩子可能永久残疾，甚至需要铁肺帮助呼吸。",
+          visual:{img:"Iron lung CDC.jpg",kind:"scene",loc:"美国 · 20 世纪中叶",labels:["夏季流行","瘫痪风险","铁肺"]}, clues:[["威胁","脊髓灰质炎"],["结局","少数感染导致瘫痪"]] },
+        { title:"一条不同的疫苗路线", caption:"匹兹堡大学的约纳斯·索尔克选择用甲醛灭活病毒：保留能激发免疫反应的结构，却让病毒失去复制能力。这与当时另一条「减毒活疫苗」路线不同。",
+          visual:{img:"Dr Jonas Edward Salk (cropped) (cropped).jpg",kind:"portrait",loc:"匹兹堡大学",labels:["约纳斯·索尔克","灭活病毒","注射疫苗"]}, clues:[["人物","约纳斯·索尔克"],["路线","灭活脊灰疫苗"]] },
+        { title:"抗体不是终点", caption:"1953 年的先导研究涉及约 1.5 万名志愿者，多数是儿童。血液中的抗体水平上升，说明疫苗触发了免疫反应；但它是否真的减少临床病例，仍要靠对照试验回答。",
+          visual:{img:"Polio Virus.jpg",kind:"document",loc:"先导研究",labels:["约 1.5 万人","抗体上升","仍需验证"]}, clues:[["已知","能够诱导抗体"],["未知","能否防止瘫痪"]] },
+        { title:"第一道门：怎样证明有效", evidence:{kicker:"研究任务",title:"把疫苗作用与人群差异分开",rows:[{label:"结局",value:"瘫痪病例",detail:"不是只看抗体"},{label:"对照",value:"同期人群",detail:"经历相同流行季"},{label:"分配",value:"尽量随机",detail:"平衡已知与未知因素"}],foot:"你需要的不是一个更乐观的故事，而是一组能支持因果结论的数据。"}, quiz:{
+            prompt:"要判断疫苗能否预防瘫痪，哪种设计最能支持因果结论？",
             options:[
-              {id:"a",label:"只给主动要求打疫苗的孩子打，然后看他们少得病。"},
-              {id:"b",label:"随机把大量孩子分成两组：一组打真疫苗，一组打盐水，其余条件相同。"},
-              {id:"c",label:"找一批已经康复的孩子，给他们打疫苗，看会不会再得。"}],
-            answerId:"b",
-            hint:"想想：如果「想打」和「不打」的人本来就不一样（比如更焦虑的家属更想打），你怎么区分「疫苗的作用」和「人群本来就不同」？",
-            reason:"只有随机分组，才能让两组在「是否得病」的所有其他因素上大致均衡，剩下的差异才能归因于疫苗本身。自选分组会混入无数混杂因素。",
-            keyQuestion:"我们怎么把「疫苗的作用」从「人群本来就不同」里分离出来？"
-          }, reveal:{title:"立题：一百万针",text:"决定：随机分组。接下来要解决的是——怎么让两组「看起来一样」，好让比较干净。"}
-        },
-        { title:"招募 187 万儿童", caption:"1954 年 4 月，试验正式铺开：44 个州、187 万 6–12 岁儿童。这是史上最大规模的临床试验，每一个数字都将在日后被反复追问。",
-          visual:{img:"United States map (true scale US States; no rivers no lakes).svg",kind:"map",loc:"44 个州",labels:["187 万儿童","6–12 岁","44 州"]}, clues:[["规模","187 万儿童"],["范围","44 个州"]] },
-        { title:"三组人", caption:"研究团队把受试者分成三组：A 组打真疫苗，B 组打盐水，C 组既不注射、也没有「接种记录」。为什么需要三组，而不是两组？",
-          visual:{img:"Polio vaccine, 1956 (16635529011).jpg",kind:"comparison",loc:"分组方案",labels:["A 真疫苗","B 盐水","C 无记录"]}, clues:[["A 组","真疫苗"],["B 组","盐水"],["C 组","无记录"]] },
-        { title:"C 组的作用", caption:"C 组是「假记录对照」——他们没被注射，但档案里写着「已接种」。这一组专门用来回答：如果根本什么都不打，单纯「以为打了」会不会影响结果？",
-          visual:{img:"Vaccine Vial (NIH BioArt 536).png",kind:"document",loc:"C 组档案",labels:["未注射","记录为已接种"]}, clues:[["C 组","未注射"],["记录","假装已接种"]] },
-        { title:"盲法", caption:"最关键的一步：医生、护士、甚至孩子和家属，都不知道谁拿了真疫苗、谁拿了盐水。只有加密的钥匙掌握在独立委员会手里。这叫「双盲」。",
-          visual:{img:"Polio Vaccination 1950s (cropped).jpg",kind:"document",loc:"双盲方案",labels:["医生不知","家属不知","独立钥匙"]}, clues:[["盲法","双方都不知道"],["钥匙","独立委员会"]] },
-        { title:"第一幕结束：针还没打下去", caption:"设计是完美的。可真正的问题才刚开始：当一百万针终于打完，数据完美得「不像话」，宣布胜利的时刻，到底到了没有？",
-          visual:{img:"Children waiting to be vaccinated for smallpox and their pre-school examination in outer room of doctor's office.... - NARA - 540701.jpg",kind:"scene",loc:"试验启动",labels:["设计完成","等待数据"]}, clues:[["状态","设计完成"],["悬念","何时宣布"]] },
+              {id:"a",label:"让所有主动要求接种的家庭参加，再与未报名家庭比较。",explain:"报名与否可能和收入、健康意识、居住环境有关；这些差异也会改变患病风险。"},
+              {id:"b",label:"在同意参加的儿童中随机分配疫苗或外观一致的安慰剂，并用相同标准随访。",explain:"随机分配、同期对照和统一诊断共同减少混杂与观察偏差。"},
+              {id:"c",label:"接种后只测抗体；只要抗体升高，就认定已经防止了瘫痪。",explain:"抗体是替代指标；真正要证明的是临床结局是否减少。"}],
+            answerId:"b", hint:"先问：两组除了是否接种疫苗之外，能否尽量保持可比？", reason:"在自愿参加者内部随机分配，最有机会让两组在已知和未知风险因素上保持可比；安慰剂、盲法与统一随访进一步减少差异化诊断。", keyQuestion:"一个漂亮的结果，究竟来自干预，还是来自两组人本来就不同？"
+          }, reveal:{title:"第一条证据：可比性",text:"因果推断的起点不是样本够大，而是比较是否公平。随机化让「除了疫苗之外」尽量成为两组唯一的系统差异。"} },
+        { title:"罕见结局需要巨大样本", caption:"瘫痪型脊灰相对少见。若只观察几千人，即便疫苗有效，也可能碰巧看不到足够病例。为了让差异从随机波动中显现，试验必须扩展到前所未有的规模。",
+          visual:{img:"Polio Virus - 52288060159.jpg",kind:"chart",loc:"样本量难题",labels:["结局罕见","需要大样本","等待流行季"]}, clues:[["统计难题","瘫痪病例相对少见"],["解法","扩大样本并同期随访"]] },
+        { title:"1954 年 4 月 26 日", caption:"全国性现场试验从弗吉尼亚州麦克莱恩的一所小学启动。第一至三年级的孩子成为「Polio Pioneers」；数十万医务人员、教师和志愿者参与组织。",
+          visual:{img:"Polio Vaccination 1950s (cropped).jpg",kind:"scene",loc:"现场试验启动",labels:["1954.4.26","一至三年级","Polio Pioneers"]}, clues:[["起点","1954 年 4 月 26 日"],["对象","小学一至三年级"]] },
+        { title:"1,829,916 名儿童", caption:"最终，44 个州、211 个试验地区共有 1,829,916 名儿童进入评价范围。这个数字包含接种者、安慰剂组、观察对照和未完成接种者，并不等于每个人都挨了疫苗针。",
+          visual:{img:"United States map (true scale US States; no rivers no lakes).svg",kind:"map",loc:"美国 · 44 个州",labels:["1,829,916 人","211 个地区","多种参与方式"]}, clues:[["总规模","1,829,916 名儿童"],["注意","并非人人接种"]] },
+        { title:"第一幕结束：规模不能替代设计", caption:"一百多万人的参与让微小差异可见，但样本再大，也不能自动消除偏差。真正决定结论强度的，是这些孩子被怎样分组、怎样观察。",
+          visual:{img:"Polio physical therapy.jpg",kind:"scene",loc:"进入试验",labels:["大样本","不等于","无偏差"]}, clues:[["规模","提高统计精度"],["底线","设计决定可解释性"]] }
       ]
     },
-    { id:"a2", chapter:2, title:"两百万支疫苗", date:"1954 年夏", place:"美国 · 全国",
-      note:"疫苗开始大规模生产与注射。两百万支疫苗里，真疫苗和「假」疫苗必须在外观上无法区分——这是双盲能成立的前提。",
+    { id:"a2", chapter:2, title:"两套对照", date:"1954 年春—秋", place:"美国 · 44 个州",
+      note:"1954 年现场试验并非一个整齐的三组实验，而是两套设计并行：部分地区采用随机、双盲、安慰剂对照，更多地区采用按年级划分的观察对照。",
       pages:[
-        { title:"生产线全速运转", caption:"为给 187 万孩子注射，疫苗必须大规模生产。每一批都要经过检测，可「检测合格」不等于「完全无风险」——这一点，几个月后会被血淋淋地证明。",
-          visual:{img:"Iron lung CDC.jpg",kind:"scene",loc:"疫苗工厂",labels:["大规模生产","批批检测"]}, clues:[["规模","大规模生产"],["风险","检测≠零风险"]] },
-        { title:"真与假，必须一模一样", caption:"A 组拿到的真疫苗，和 B 组拿到的盐水，瓶子、颜色、味道、标签，必须完全相同。如果打针的人「感觉」出区别，盲法就破了。",
-          visual:{img:"Vaccine Vial (NIH BioArt 535 - 636843).png",kind:"comparison",loc:"真 vs 假",labels:["外观相同","无法区分"]}, clues:[["前提","外观完全一致"],["目的","维持盲法"]] },
-        { title:"安慰剂效应", quiz:{
-            prompt:"B 组打的是盐水。为什么这一组「必须」存在，而不是省掉？",
+        { title:"为什么会有两套方案", caption:"随机安慰剂方案在科学上更干净，却面临家长不愿孩子接受「可能是盐水」的阻力；观察对照更容易被社区接受，却牺牲了一部分可比性。试验最终保留了两套方案。",
+          visual:{img:"Vaccine Vial (NIH BioArt 536).png",kind:"comparison",loc:"方案争论",labels:["科学严谨","公众接受","两套并行"]}, clues:[["张力","严谨性 vs 可接受性"],["结果","两套方案并行"]] },
+        { title:"方案一：随机安慰剂对照", caption:"在 11 个州的 84 个试验地区，同意参加的一至三年级儿童被随机分配：一组接受疫苗，一组接受外观一致的惰性注射。参与者和一线人员不知道分组。",
+          visual:{img:"Vaccine Vial (NIH BioArt 535 - 636843).png",kind:"comparison",loc:"84 个地区",labels:["随机分配","疫苗 vs 安慰剂","双盲"]}, clues:[["地区","84 个地区 / 11 州"],["强项","随机 + 双盲"]] },
+        { title:"方案二：观察对照", caption:"在另外 33 个州的 127 个地区，同意参加的二年级儿童接种疫苗，一年级和三年级儿童作为观察对照；二年级中未获家长同意者也被单独记录。没有人伪造接种记录。",
+          visual:{img:"Polio vaccine, 1956 (16635529011).jpg",kind:"comparison",loc:"127 个地区",labels:["二年级接种","一、三年级对照","非随机"]}, clues:[["地区","127 个地区 / 33 州"],["限制","年级和同意造成差异"]] },
+        { title:"第二道门：哪套证据更强", evidence:{kicker:"并行方案",title:"人数更多，不一定更接近因果",rows:[{label:"随机方案",value:"约 74.9 万",detail:"同意者内随机，含未接种记录"},{label:"观察方案",value:"约 108.1 万",detail:"按年级与家长选择分组"}],foot:"问题不是哪组人数更大，而是哪组的反事实更可信。"}, quiz:{
+            prompt:"若目标是估计「疫苗本身」的效果，哪套方案提供的证据更强？",
             options:[
-              {id:"a",label:"因为孩子和医生「以为」打了疫苗，本身就少生病或报告少——盐水组用来扣掉这部分「心理/自然波动」。"},
-              {id:"b",label:"为了多卖一些疫苗，凑够生产数量。"},
-              {id:"c",label:"因为法律要求每组人数必须相等，盐水只是凑数。"}],
-            answerId:"a",
-            hint:"如果 A 组「少得病」，有多少是因为「打了东西」这件事本身（安慰剂效应 + 疾病自然波动），而不是疫苗真的在起作用？",
-            reason:"安慰剂效应和疾病的自然波动，会让任何「打了」的组看起来都比「没打」的好。盐水组扣掉了这部分，剩下的差异才可能是疫苗的真实效果。",
-            keyQuestion:"A 组少得的病，有多少是「疫苗的作用」，有多少只是「打了东西」本身？"
-          }, reveal:{title:"第二道对照",text:"盐水组不是为了凑数，而是为了「减去」心理与自然波动。没有它，你永远分不清疫苗和安慰剂。"}
-        },
-        { title:"注射季", caption:"夏天，一百万针陆续打进孩子的手臂。每一支都登记：哪个孩子、哪批疫苗、哪组、谁打的。这些记录，将是日后一切结论的地基。",
-          visual:{img:"StateLibQld 2 164435 Children arriving at City Hall for vaccinations, Brisbane, 1951.jpg",kind:"scene",loc:"注射现场",labels:["一百万针","逐支登记"]}, clues:[["动作","注射"],["记录","逐支登记"]] },
-        { title:"等待", caption:"注射之后，是漫长的等待。霍乱、流感、其他感染，都可能让某些孩子生病。研究团队必须分清：哪些病是小儿麻痹，哪些不是。",
-          visual:{img:"Waiting to see Doctor (15630292036).jpg",kind:"document",loc:"等待期",labels:["数月观察","区分病种"]}, clues:[["阶段","等待观察"],["难点","区分真阳性"]] },
-        { title:"病例报告涌来", caption:"各地医院陆续报告「疑似小儿麻痹」病例。每一个都要被独立委员会复核：是不是真的？属于哪组？用的是哪批疫苗？",
-          visual:{img:"1956 Maastricht, Ziekenhuis St-Annadal, poliopatiëntjes in bad.jpg",kind:"document",loc:"病例复核",labels:["疑似病例","独立复核"]}, clues:[["数据","病例报告"],["流程","独立复核"]] },
-        { title:"数字开始跳动", caption:"到秋天，初步数据出来了：A 组（真疫苗）的小儿麻痹发病率，远低于 B 组（盐水）。研究团队私下已经看到「有效」的轮廓——但还没敢对外说。",
-          visual:{img:"Man using microscope in laboratory LCCN2016882745.jpg",kind:"chart",loc:"初步数据",labels:["A 组低","B 组高","趋势明显"]}, clues:[["初步","A 组显著低"],["克制","未对外宣布"]] },
-        { title:"第二幕结束：数据很好，但没人敢说", caption:"为什么克制？因为「初步」和「结论」之间，还隔着揭盲、复核、以及一个更难的伦理问题。",
-          visual:{img:"Candle light 25.jpg",kind:"scene",loc:"沉默的实验室",labels:["数据良好","保持沉默"]}, clues:[["状态","数据良好"],["张力","为何沉默"]] },
+              {id:"a",label:"观察对照更强，因为参与人数更多。",explain:"更大的样本能减少随机误差，却不能修复年级、家庭选择和生活条件造成的系统偏差。"},
+              {id:"b",label:"随机安慰剂对照更强，因为同意参加者被随机分组，且诊断过程可保持盲法。",explain:"随机化提高组间可比性；盲法降低不同分组被不同方式诊断的风险。"},
+              {id:"c",label:"两套方案同样强，只要最终病例数足够多。",explain:"病例多不等于比较公平；系统偏差不会随样本量增大而自动消失。"}],
+            answerId:"b", hint:"把「精确」和「无偏」分开：大样本主要改善哪一个？随机分配主要改善哪一个？", reason:"随机安慰剂对照在同意参加的人群内创造了更可比的两组；观察方案虽然规模更大，却可能混入年龄、家庭同意和社会经济条件差异。", keyQuestion:"大样本可以缩小误差，但能不能消除错误的比较方式？"
+          }, reveal:{title:"第二条证据：随机化不等于规模",text:"观察数据可以补充外部信息，但估计疫苗因果效果时，随机安慰剂对照是证据链的主轴。"} },
+        { title:"家长同意带来的偏差", caption:"愿意签署同意书的家庭与未签署者并不完全相同。后来调查发现，参与和不参与儿童之间存在社会学差异；因此，把自愿接种者直接与未报名者相比会产生选择偏差。",
+          visual:{img:"Polio lores134.jpg",kind:"document",loc:"同意书与选择偏差",labels:["家长同意","人群不同","选择偏差"]}, clues:[["偏差来源","是否同意并非随机"],["后果","组间基础风险不同"]] },
+        { title:"盲法防的是观察偏差", caption:"对瘫痪型脊灰而言，安慰剂并不是靠「心理作用」让孩子少得病。它更重要的作用，是让就医、报告、诊断和病例复核尽量不因分组而改变。",
+          visual:{img:"Polio sequelle.jpg",kind:"document",loc:"病例诊断",labels:["同样就医","同样报告","同样复核"]}, clues:[["安慰剂作用","维持盲法"],["主要防范","观察与诊断偏差"]] },
+        { title:"密歇根的独立评价中心", caption:"托马斯·弗朗西斯领导密歇根大学脊灰疫苗评价中心，集中接收各地记录并判定病例。疫苗研发者索尔克并不负责最终统计评价，这种角色分离增强了结论的可信度。",
+          visual:{img:"Jonas Salk candid.jpg",kind:"portrait",loc:"独立评价",labels:["托马斯·弗朗西斯","密歇根大学","角色分离"]}, clues:[["评价者","托马斯·弗朗西斯团队"],["原则","研发与评价分离"]] },
+        { title:"第二幕结束：先把比较做干净", caption:"随机化解决「两组本来不同」，盲法解决「两组被不同对待」，统一病例标准解决「同一种病被不同判断」。下一步，才轮到数字说话。",
+          visual:{img:"Polio Virus - 52287171002.jpg",kind:"chart",loc:"数据锁定前",labels:["随机化","盲法","统一标准"]}, clues:[["证据链","随机 + 盲法 + 统一诊断"],["下一步","读取结果"]] }
       ]
     },
-    { id:"a3", chapter:3, title:"揭盲风波", date:"1955 年 2 月", place:"美国 · 全国",
-      note:"1955 年 2 月 21 日，因一起事故，研究委员会被迫提前揭盲。数据震惊了所有人：疫苗 100% 有效。可科学上，试验「还没完成」。",
+    { id:"a3", chapter:3, title:"33 对 115", date:"1955 年 4 月", place:"美国 · 安娜堡",
+      note:"评价中心最终汇总 1,829,916 名儿童的记录。最干净的随机对照数据里，完整接种组出现 33 例瘫痪型脊灰，安慰剂组出现 115 例。",
       pages:[
-        { title:"一起事故", caption:"纽约州拉法叶县，一个使用特定批次（Ciba 生产）疫苗的孩子群中，出现了 52 例瘫痪、3 例死亡。恐慌瞬间蔓延：疫苗，安全吗？",
-          visual:{img:"Polio physical therapy.jpg",kind:"scene",loc:"拉法叶县",labels:["52 例瘫痪","3 例死亡","恐慌"]}, clues:[["事故","拉法叶县"],["影响","52 瘫 3 死"]] },
-        { title:"被迫提前揭盲", caption:"为回应公众恐慌，委员会决定打破双盲、提前查看 A 组与 B 组的真实对照。1955 年 2 月 21 日，钥匙被打开。",
-          visual:{img:"Svend Ahrend Larsen at his desk by Elfelt & Co (1939).jpg",kind:"document",loc:"揭盲之夜",labels:["打破双盲","提前查看"]}, clues:[["决定","提前揭盲"],["日期","1955.2.21"]] },
-        { title:"100% 有效", quiz:{
-            prompt:"揭盲数据显示疫苗 100% 有效。此时，最稳妥的下一步是什么？",
+        { title:"一千零十三份病例记录", caption:"整个评价期共报告 1,013 例脊灰病例。每一例都要核对临床表现、实验室结果、接种完成情况与所在试验方案，不能把「疑似」直接当成结论。",
+          visual:{img:"Polio Virus.jpg",kind:"document",loc:"病例评价",labels:["1,013 例报告","逐例核对","统一定义"]}, clues:[["病例总数","1,013"],["流程","逐例分类与复核"]] },
+        { title:"最关键的一行数据", caption:"在随机安慰剂地区，200,745 名完整接种儿童中有 33 例瘫痪型脊灰；201,229 名安慰剂儿童中有 115 例。两组规模近乎相同，病例差异却很大。",
+          visual:{img:"Polio Virus - 52288060159.jpg",kind:"chart",loc:"随机对照结果",labels:["疫苗 33 / 200,745","安慰剂 115 / 201,229","瘫痪型脊灰"]}, clues:[["疫苗组","33 / 200,745"],["安慰剂组","115 / 201,229"]] },
+        { title:"第三道门：数字意味着什么", evidence:{kicker:"随机对照结果",title:"33 对 115，不是 0 对 115",rows:[{label:"疫苗组",value:"33 例",detail:"200,745 人 · 约 16.4 / 10 万"},{label:"安慰剂组",value:"115 例",detail:"201,229 人 · 约 57.1 / 10 万"}],foot:"疫苗效力 ≈ 1 − 疫苗组发病率 ÷ 安慰剂组发病率。"}, quiz:{
+            prompt:"根据这组数据，疫苗对瘫痪型脊灰的效力最接近多少？",
             options:[
-              {id:"a",label:"立即全国宣布：疫苗完美有效，大规模推广。"},
-              {id:"b",label:"宣布有效，但先只推广给未受事故影响地区的孩子。"},
-              {id:"c",label:"公布数据，但说明「试验尚未完整完成」，继续等待并核查全部病例与事故原因。"}],
-            answerId:"c",
-            hint:"数据「看起来」完美，可你心里清楚：有 52 个孩子瘫了、3 个死了，原因还没查清。在这种时候「宣布完美」，代价是什么？",
-            reason:"揭盲只是提前看到了「方向」，不等于完成了全部核查。在事故原因未明、全部病例未复核前宣布「完美有效」，既可能误导，也可能在风险未清时扩大暴露。科学结论要等「证据链完整」，而非「数据好看」。",
-            keyQuestion:"数据「好看」和结论「可靠」，之间还差什么？"
-          }, reveal:{title:"克制：公布但不宣布",text:"团队选择公布数据、说明局限，同时彻查事故。科学的可信，正来自这种「不抢跑」。"}
-        },
-        { title:"彻查事故", caption:"调查指向 Ciba 那一批次的生产污染，而非疫苗设计本身。但「污染批次」和「疫苗本身」是两件事，必须分开说——这直接影响「该不该继续推广」。",
-          visual:{img:"Infantile paralysis 1.jpg",kind:"document",loc:"事故调查",labels:["批次污染","非设计缺陷"]}, clues:[["原因","批次污染"],["区分","批次 vs 设计"]] },
-        { title:"舆论的撕裂", caption:"一边是「数据 100% 有效」，一边是「有孩子死了」。报纸、家长、政客，声音各不相同。研究团队必须在噪音里守住一条线：只说证据支持的。",
-          visual:{img:"Main Street at night, Salt Lake City, Utah (69162).jpg",kind:"scene",loc:"舆论场",labels:["有效?","安全?","噪音"]}, clues:[["压力","舆论撕裂"],["原则","只说证据"]] },
-        { title:"独立委员会的复核", caption:"所有病例被逐一复核：哪些是真正的小儿麻痹？哪些是其他病被误报？哪些与事故批次相关？复核完成前，任何「最终结论」都只是暂时的。",
-          visual:{img:"Polio Virus - 52288060159.jpg",kind:"document",loc:"复核",labels:["逐一核查","区分误报"]}, clues:[["流程","逐一复核"],["状态","结论暂挂"]] },
-        { title:"数字终于稳了", caption:"到 4 月，复核基本完成。真实数据浮出水面：疫苗对小儿麻痹的保护效果约 90%（不是 100%——揭盲的「完美」包含了统计波动与未复核病例）。事故批次的问题被隔离。",
-          visual:{img:"Polio Virus - 52287171002.jpg",kind:"chart",loc:"最终数据",labels:["约 90% 有效","事故已隔离"]}, clues:[["修正","90% 而非 100%"],["事故","已隔离"]] },
-        { title:"第三幕结束：真相需要时间", caption:"「100%」是揭盲那一夜的光，「90%」是复核之后的实。科学从不抢跑，它等。",
-          visual:{img:"Los Angeles City Hall at night with office lights turned on in the form on a cross for Christmas, 1947.jpg",kind:"scene",loc:"黎明前",labels:["100% 是光","90% 是实"]}, clues:[["教训","抢跑的代价"],["状态","真相渐明"]] },
+              {id:"a",label:"约 29%，因为 33 大约是 115 的 29%。",explain:"33/115 近似的是相对风险；疫苗效力要用 1 减去相对风险。"},
+              {id:"b",label:"约 71%，因为疫苗组发病率约为安慰剂组的 29%。",explain:"1 − (33/200745) ÷ (115/201229) ≈ 71%。"},
+              {id:"c",label:"100%，因为试验最后宣布疫苗有效。",explain:"有效不等于完全保护；疫苗组仍出现了 33 例瘫痪型病例。"}],
+            answerId:"b", hint:"先算两组发病率之比，再用 1 减去它。注意两组人数非常接近，但并不完全相同。", reason:"疫苗组发病率约 16.4/10 万，安慰剂组约 57.1/10 万；相对风险约 0.29，因此疫苗效力约 1−0.29＝71%。", keyQuestion:"「风险降低到原来的 29%」和「降低了 29%」为什么不是一回事？"
+          }, reveal:{title:"第三条证据：约 71%，不是 100%",text:"真实结果有不确定性，也有按病毒型别和病例定义变化的区间。可靠结论不需要把数字包装成完美。"} },
+        { title:"观察方案也指向同一方向", caption:"观察对照地区中，221,998 名完整接种二年级儿童出现 38 例瘫痪型脊灰；725,173 名一、三年级观察对照出现 330 例。方向一致，但年级与家庭选择差异让因果解释更谨慎。",
+          visual:{img:"United States map (true scale US States; no rivers no lakes).svg",kind:"chart",loc:"观察对照结果",labels:["接种 38 / 221,998","对照 330 / 725,173","方向一致"]}, clues:[["观察结果","接种组发病率更低"],["限制","非随机，不能等同 RCT"]] },
+        { title:"效力不是一个孤立数字", caption:"Francis 报告显示，保护效果会随病毒型别和病例定义而变化：对瘫痪型脊灰总体有明确保护，部分分析达到 80%—90%，但绝不是对所有感染都 100% 有效。",
+          visual:{img:"Polio Virus - 52287171002.jpg",kind:"chart",loc:"分层结果",labels:["按型别变化","按结局变化","非 100%"]}, clues:[["范围","不同分析约 60%—90%"],["禁忌","不能说 100% 有效"]] },
+        { title:"1955 年 4 月 12 日", caption:"在密歇根大学 Rackham Auditorium，托马斯·弗朗西斯公布结论：「安全、有效、有力。」他报告疫苗对瘫痪型脊灰最高约有 80%—90% 的保护力。",
+          visual:{img:"Jonas Salk candid.jpg",kind:"scene",loc:"安娜堡 · 结果公布",labels:["1955.4.12","安全、有效、有力","80%—90%"]}, clues:[["日期","1955 年 4 月 12 日"],["宣布者","托马斯·弗朗西斯"]] },
+        { title:"有效，不等于没有边界", caption:"试验回答的是 1954 年使用的疫苗能否降低病例风险；它没有证明保护永久持续，也没有证明每一批量产疫苗都必然安全。效力评价与制造质量控制，是两条相关但不同的证据链。",
+          visual:{img:"Vaccine Vial (NIH BioArt 536).png",kind:"document",loc:"结论边界",labels:["有效性","持续时间未知","批次质量另证"]}, clues:[["已证明","降低瘫痪风险"],["未证明","所有批次永远安全"]] },
+        { title:"第三幕结束：数字终于说话", caption:"33 对 115 足以拒绝「疫苗毫无作用」，却不能导出「疫苗完美无风险」。科学结论的力量，来自它同时说清楚支持什么、不支持什么。",
+          visual:{img:"Polio vaccine poster, 1958 (16014679784).jpg",kind:"scene",loc:"结果之后",labels:["证据支持","保留边界","不是完美"]}, clues:[["结论","疫苗有效"],["边界","有效 ≠ 完美"]] }
       ]
     },
-    { id:"a4", chapter:4, title:"数字说话了", date:"1955 年 4 月", place:"美国 · 全国",
-      note:"1955 年 4 月 12 日，《纽约时报》头版宣布索尔克疫苗有效。但「有效」后面，跟着一个必须说清楚的「但是」。",
+    { id:"a4", chapter:4, title:"试验之后", date:"1955 年春—秋", place:"美国 · 全国",
+      note:"Cutter 事故发生在试验结果公布、疫苗获批并开始大规模接种之后。它没有推翻 1954 年的效力试验，却暴露出量产、检测和监管的严重缺口。",
       pages:[
-        { title:"头版", caption:"1955 年 4 月 12 日，《纽约时报》头版：索尔克脊髓灰质炎疫苗被证实有效。消息传遍全国，等待多年的父母终于松了一口气。",
-          visual:{img:"1918 Headlines from Chicago newspapers - Spanish flu - 1918 influenza pandemic.jpg",kind:"document",loc:"纽约时报",labels:["头版","证实有效"]}, clues:[["日期","1955.4.12"],["事件","宣布有效"]] },
-        { title:"但「有效」后面跟着「但是」", caption:"声明里有一句话，和「有效」同样重要：在拉法叶县使用特定污染批次的孩子中，出现了额外的小儿麻痹病例。这是「有效」必须携带的限定。",
-          visual:{img:"Polio sequelle.jpg",kind:"document",loc:"声明全文",labels:["有效","但是…"]}, clues:[["结论","有效"],["限定","批次事故"]] },
-        { title:"风险与收益", quiz:{
-            prompt:"最终数据：疫苗约 90% 有效，但有个别批次污染导致额外病例。面对「有效但有风险」，最稳妥的结论是？",
+        { title:"从试验产品到量产产品", caption:"结果公布后，索尔克疫苗迅速获批并投入接种。此时问题发生了变化：不再只是「这种疫苗原理是否有效」，还要保证不同厂家、不同批次都被充分灭活。",
+          visual:{img:"Polio vaccine, 1956 (16635529011).jpg",kind:"scene",loc:"大规模接种",labels:["试验结束","快速获批","量产考验"]}, clues:[["转折","从效力转向制造质量"],["新问题","每批是否充分灭活"]] },
+        { title:"四月底出现异常病例", caption:"接种启动后不久，卫生部门收到近期接种儿童发生瘫痪的报告。病例在时间、地点和所用产品上形成聚集，调查很快指向加利福尼亚的 Cutter Laboratories。",
+          visual:{img:"Polio physical therapy.jpg",kind:"document",loc:"1955 年 4 月下旬",labels:["接种后病例","异常聚集","指向 Cutter"]}, clues:[["时间","结果公布之后"],["厂家","Cutter Laboratories"]] },
+        { title:"问题不在试验分组", caption:"调查显示，Cutter 的部分量产批次仍含有具有感染性的活病毒。事故属于灭活工艺和放行控制失败，不是 1954 年随机对照数据被「改写」或提前揭盲。",
+          visual:{img:"Vaccine Vial (NIH BioArt 535 - 636843).png",kind:"document",loc:"制造调查",labels:["活病毒残留","工艺失败","不是提前揭盲"]}, clues:[["直接原因","部分批次灭活不充分"],["区分","效力试验 vs 制造质量"]] },
+        { title:"第四道门：如何行动", evidence:{kicker:"时间线",title:"有效的产品，也可能被制造失败伤害",rows:[{label:"4 月 12 日",value:"公布结果",detail:"试验显示疫苗有效"},{label:"4 月下旬",value:"异常病例",detail:"集中于部分量产批次"},{label:"调查重点",value:"批次追踪",detail:"灭活、检测与放行流程"}],foot:"正确行动必须同时保护眼前儿童，并保留对有效疫苗的长期使用可能。"}, quiz:{
+            prompt:"面对疑似制造事故，哪项处置最符合当时证据？",
             options:[
-              {id:"a",label:"疫苗有效，且在隔离污染批次的前提下，收益远大于风险，应继续推广。"},
-              {id:"b",label:"既然有人因此瘫痪甚至死亡，疫苗有风险，应全面停止。"},
-              {id:"c",label:"数据还不够，再等十年重新设计试验。"}],
-            answerId:"a",
-            hint:"把「90% 有效」和「个别批次污染」放在天平上：污染是「可隔离的生产问题」，不是「疫苗本身的缺陷」。权衡的关键是什么？",
-            reason:"风险-收益判断不是「有零风险才能用」，而是「风险是否可识别、可控制、是否远小于不用的后果」。污染批次可隔离、疫苗本身有效，停用反而让 90% 的保护消失——这才是最稳妥的结论。",
-            keyQuestion:"「可控制的小风险」和「不保护的确定损失」，哪个更该被接受？"
-          }, reveal:{title:"结案：数字说话了",text:"90% 有效 + 事故可隔离 = 继续推广。医学决策的本质，从来不是「零风险」，而是「权衡」。"}
-        },
-        { title:"隔离与推广", caption:"污染批次被召回隔离，合格批次继续供应。小儿麻痹发病率在接下来的几年里急剧下降——这是「权衡」二字换来的曲线。",
-          visual:{img:"Polio lores134.jpg",kind:"chart",loc:"发病率曲线",labels:["急剧下降","合格批次"]}, clues:[["动作","隔离+推广"],["结果","发病率下降"]] },
-        { title:"一个方法论的遗产", caption:"这次试验留下的不只是疫苗，而是一套判断「什么才算真的有效」的方法：随机、对照、盲法、复核、权衡。后世每一次「新疗法/新药该不该用」，都在重走这条线。",
-          visual:{img:"Polio vaccine poster, 1958 (16014679784).jpg",kind:"document",loc:"方法论遗产",labels:["随机","对照","盲法","权衡"]}, clues:[["遗产","方法学"],["意义","可复用"]] },
-        { title:"尾声：那些没被看见的孩子", caption:"187 万里，绝大多数孩子平安。可我们不会忘记拉法叶县的 3 个名字。科学的进步，从来都带着它没能保护到的那一部分的重量。",
-          visual:{img:"Polio patient in iron lung (NCP 3631), National Museum of Health and Medicine (284972620).jpg",kind:"scene",loc:"尾声",labels:["多数平安","少数被记住"]}, clues:[["纪念","3 个名字"],["重量","进步的代价"]] },
-        { title:"你的判断，留下了痕迹", caption:"从随机分组到风险权衡，你在 4 个岔路口做的选择，构成了这份结案报告。数据会随时间修正，但「如何判断」的能力，留了下来。",
-          visual:{img:"Jonas Salk candid.jpg",kind:"scene",loc:"结案",labels:["4 处判断","报告成形"]}, clues:[["回顾","你的 4 次选择"],["落点","判断力"]] },
+              {id:"a",label:"试验已经证明有效，因此继续接种所有现有批次，等待更多病例再说。",explain:"效力证据不能替代批次安全证据；继续使用可疑产品会扩大本可避免的伤害。"},
+              {id:"b",label:"事故说明疫苗原理错误，永久放弃所有灭活脊灰疫苗。",explain:"病例聚集于特定厂家与批次，更符合制造失败；直接否定全部产品超出了证据。"},
+              {id:"c",label:"立即停用和追踪可疑产品，调查全部厂家、强化检测；确认安全后再恢复接种。",explain:"这同时控制眼前风险、定位原因，并允许合格产品在新标准下继续提供保护。"}],
+            answerId:"c", hint:"先把三个问题分开：疫苗原理是否有效？哪些批次可能有问题？怎样在调查期间避免继续暴露？", reason:"风险处置应与证据粒度匹配：暂停并追踪可疑产品、调查工艺和所有厂家、提高放行标准；当安全条件重新满足后，再恢复接种。", keyQuestion:"怎样既不把制造事故淡化成偶然，也不把特定批次的问题夸大成整个原理失败？"
+          }, reveal:{title:"第四条证据：分层处置",text:"风险管理不是在「什么都不停」和「永远放弃」之间二选一，而是定位问题、立即控制、修复系统并持续验证。"} },
+        { title:"事故的代价", caption:"1956 年的公共卫生报告记录了与 Cutter 疫苗相关的 204 例脊灰和 11 例死亡，包括接种者及其家庭、社区接触者。不同后续统计口径略有差异，但灾难规模毫无疑问。",
+          visual:{img:"Polio patient in iron lung (NCP 3631), National Museum of Health and Medicine (284972620).jpg",kind:"document",loc:"Cutter 事故",labels:["204 例记录","11 人死亡","接触传播"]}, clues:[["同期报告","204 例、11 死亡"],["影响","接种者及接触者"]] },
+        { title:"监管被迫升级", caption:"美国暂停接种并重新检查生产与检测流程。监管部门强化了灭活验证、批次放行和制造监督；CDC 也将 Cutter 事故视为疫苗监管制度的重要转折点。",
+          visual:{img:"Polio lores134.jpg",kind:"document",loc:"制度修复",labels:["暂停与调查","强化检测","加强监管"]}, clues:[["系统行动","审查制造与放行"],["遗产","更严格的监管"]] },
+        { title:"接种在新标准下恢复", caption:"在流程和监督加强后，脊灰接种于 1955 年秋季恢复。随后几年，美国脊灰病例迅速下降。有效性证据没有让事故可以被忽略；事故也没有让有效性证据失效。",
+          visual:{img:"Polio vaccine poster, 1958 (16014679784).jpg",kind:"chart",loc:"恢复接种",labels:["1955 年秋","新标准","病例下降"]}, clues:[["恢复","确认安全后继续"],["结果","病例数随后下降"]] },
+        { title:"尾声：证据链没有终点", caption:"随机化告诉我们疫苗是否有效，病例监测告诉我们现实中发生了什么，制造监管保证每一批产品尽量兑现试验中的承诺。科学不是一次宣布，而是一套持续纠错的制度。",
+          visual:{img:"Jonas Salk candid.jpg",kind:"scene",loc:"结案",labels:["随机试验","安全监测","制造监管"]}, clues:[["方法","效力与安全分开验证"],["落点","持续监测与纠错"]] }
       ]
-    },
+    }
   ]
 };
 
-var LS_KEY = "salk-story-v1";
+var LS_KEY = "salk-story-v2";
 var state = { cursor:0, furthest:0, answers:{}, score:null };
 function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){} }
 function load(){
-  try{ var s = JSON.parse(localStorage.getItem(LS_KEY)); if(s && s.answers) Object.assign(state, s); }catch(e){}
+  try{
+    var s = JSON.parse(localStorage.getItem(LS_KEY));
+    if(s && s.answers) Object.assign(state, s);
+  }catch(e){}
+  state.cursor = Number.isInteger(state.cursor) ? Math.max(0, Math.min(state.cursor, PANELS.length-1)) : 0;
+  state.furthest = Number.isInteger(state.furthest) ? Math.max(state.cursor, Math.min(state.furthest, PANELS.length-1)) : state.cursor;
 }
 function resetAll(){ state.cursor=0; state.furthest=0; state.answers={}; state.score=null; save(); }
 
 var PANELS = [];
 STORY.scenes.forEach(function(sc){ sc.pages.forEach(function(p,i){
-  PANELS.push(Object.assign({}, p, { scene:sc, index: PANELS.length, id: sc.id + "-p" + i }));
+  PANELS.push(Object.assign({}, p, { scene:sc, sceneIndex:i, index:PANELS.length, id:sc.id + "-p" + i }));
 });});
 STORY.totalPanels = PANELS.length;
 
@@ -463,24 +512,32 @@ function switchView(v){
   window.scrollTo({top:0});
 }
 function goShelf(){ renderShelf(); switchView("shelf"); }
-function startStory(){ renderReader(); switchView("reader"); }
+function startStory(){
+  if(state.score!=null && state.furthest>=PANELS.length-1){ renderResults(computeScore()); switchView("results"); return; }
+  renderReader(); switchView("reader"); focusPageHeading();
+}
 function restart(){ resetAll(); renderShelf(); startStory(); }
 
 function renderShelf(){
   var meta = document.getElementById("shelfProgress");
+  var openBtn = document.querySelector(".story-card .btn-primary");
   if(state.furthest>0 && state.furthest < PANELS.length-1){
     var p = PANELS[state.furthest];
     meta.textContent = "书签：第 " + (state.furthest+1) + " 页 · " + p.title + "（点击「翻开故事」继续）";
+    openBtn.innerHTML = '继续调查 <span aria-hidden="true">→</span>';
   } else if(state.furthest >= PANELS.length-1 && state.score!=null){
-    meta.textContent = "已完成 · 成绩 " + state.score + " 分（点击「翻开故事」重看）";
+    meta.textContent = "已完成 · 成绩 " + state.score + " 分（点击查看结案报告）";
+    openBtn.innerHTML = '查看结案报告 <span aria-hidden="true">→</span>';
   } else {
     meta.textContent = "尚未开始 · " + PANELS.length + " 幅分镜 · 4 处推理";
+    openBtn.innerHTML = '翻开故事 <span aria-hidden="true">→</span>';
   }
 }
 
 function v_type(k){ return ({map:"地理",portrait:"人物",comparison:"对照",document:"文档",scene:"场景",chart:"数据"})[k]||"场景"; }
 
 function visualPhoto(p){
+  if(p.evidence) return renderEvidence(p.evidence);
   var v = p.visual || {};
   var img = v.img ? IMAGES[v.img] : null;
   var labels = v.labels || [];
@@ -491,7 +548,7 @@ function visualPhoto(p){
   var portrait = img && (img.h > img.w * 1.15);
   var cls = "visual-art " + (portrait ? "tall" : "photo");
   if(img){
-    return '<div class="'+cls+'"><img src="'+img.src+'" alt="'+(v.loc||"")+'" loading="lazy"/>' +
+    return '<div class="'+cls+'"><img src="'+img.src+'" alt="'+p.title+'：'+(v.loc||"历史档案影像")+'" loading="eager" decoding="async"/>' +
       (img.credit ? '<span class="visual-src">'+img.credit+'</span>' : '') +
       '<span class="visual-loc">' + (v.loc||"") + '</span><div>' + chips + '</div></div>';
   }
@@ -506,15 +563,23 @@ function visualPhoto(p){
     '<span class="visual-loc">' + (p.scene && p.scene.place || v.loc || "") + '</span><div>' + chips + '</div></div>';
 }
 
+function renderEvidence(e){
+  return '<div class="evidence-board">' +
+    '<div class="evidence-kicker">'+e.kicker+'</div><div class="evidence-title">'+e.title+'</div>' +
+    '<div class="evidence-rows">'+e.rows.map(function(r){
+      return '<div class="evidence-row"><span>'+r.label+'</span><strong>'+r.value+'</strong><small>'+r.detail+'</small></div>';
+    }).join("")+'</div><div class="evidence-foot">'+e.foot+'</div></div>';
+}
+
 function isActEnd(p){
-  var idx = p.scene.pages.indexOf(p);
-  return idx === p.scene.pages.length - 1;
+  return p.sceneIndex === p.scene.pages.length - 1;
 }
 
 function renderReader(){
   var i = state.cursor;
   var p = PANELS[i];
   var sc = p.scene;
+  var pageClues = p.clues || (p.evidence ? p.evidence.rows.map(function(r){return [r.label,r.value];}) : []);
   document.getElementById("readerProgress").textContent = String(i+1).padStart(2,"0") + " / " + PANELS.length;
   document.getElementById("readerBarFill").style.width = ((i+1)/PANELS.length*100).toFixed(1) + "%";
   var clues = Object.keys(state.answers).filter(function(id){return state.answers[id].acknowledged;}).length;
@@ -525,19 +590,31 @@ function renderReader(){
   var nextSceneTitle = lastChap ? "结案报告" : STORY.scenes[sc.chapter].title;
   var html = '<div class="visual">' +
     visualPhoto(p) +
-    '<div class="visual-body"><div class="visual-type">档案影像 · ' + v_type(p.visual && p.visual.kind) + '</div>' +
+    '<div class="visual-body"><div class="visual-type">' + (p.evidence ? '证据台 · 真实数据' : '档案影像 · ' + v_type(p.visual && p.visual.kind)) + '</div>' +
     '<div class="reading-clues"><h4>读图线索</h4>' +
-    (p.clues||[]).map(function(c){return '<div class="clue-row"><dt>'+c[0]+'</dt><dd>'+c[1]+'</dd></div>';}).join("") +
-    '</div><p class="visual-note">影像来自 Wikimedia Commons 公开档案，为示意性配图，与本页场景不完全对应；研究结论以文献为准。图源署名见图片右上角。</p></div></div>' +
+    pageClues.map(function(c){return '<div class="clue-row"><dt>'+c[0]+'</dt><dd>'+c[1]+'</dd></div>';}).join("") +
+    '</div><p class="visual-note">' + (p.evidence ? '数值取自 Francis 试验报告及密歇根大学档案；计算结果按页面显示值四舍五入。' : '影像来自 Wikimedia Commons 公开档案，为示意性配图，与本页场景不完全对应；研究结论以文献为准。图源署名见图片右上角。') + '</p></div></div>' +
     '<div class="prose">' +
     '<div class="chapter-kicker"><span>第 ' + actNo + ' 幕</span><span class="date">' + sc.date + '</span><span class="dot"></span><span>' + sc.title + '</span></div>' +
-    '<h1>' + p.title + '</h1><p class="caption">' + p.caption + '</p><p class="scene-note">' + sc.note + '</p>' +
+    '<h1 tabindex="-1">' + p.title + '</h1><p class="caption">' + (p.caption||"") + '</p>' +
+    (p.sceneIndex===0 ? '<p class="scene-note">' + sc.note + '</p>' : '') +
     (p.quiz ? renderQuiz(p) : "") +
     (p.quiz && state.answers[p.id] && state.answers[p.id].acknowledged ? renderReveal(p) : "") +
     (isActEnd(p) ? '<div class="act-end"><div class="kicker">第 ' + actNo + ' 幕结束</div><h3>' + sc.title + '</h3><p>' + p.caption + '</p><p style="margin-top:12px;font-size:13px;opacity:.8">下一幕：' + nextSceneTitle + '</p></div>' : "") +
     '</div>';
   document.getElementById("pageGrid").innerHTML = html;
   renderNav(p);
+  preloadNextImage(i);
+}
+
+function preloadNextImage(i){
+  var next = PANELS[i+1];
+  if(!next || !next.visual || !next.visual.img || !IMAGES[next.visual.img]) return;
+  var pre = new Image(); pre.src = IMAGES[next.visual.img].src;
+}
+
+function focusPageHeading(){
+  requestAnimationFrame(function(){ var h = document.querySelector("#pageGrid h1"); if(h) h.focus({preventScroll:true}); });
 }
 
 function renderQuiz(p){
@@ -547,23 +624,26 @@ function renderQuiz(p){
   var done = a.acknowledged;
   var opts = q.options.map(function(o){
     var cls = "opt";
-    if(done){
-      if(o.id===q.answerId) cls += " is-correct";
-      else if(a.attempts.indexOf(o.id) > -1) cls += " is-wrong";
-    }
-    return '<button class="'+cls+'" data-opt="'+o.id+'" '+(done?"disabled":"")+' onclick="pick(\''+p.id+'\',\''+o.id+'\')">' +
+    var tried = a.attempts.indexOf(o.id) > -1;
+    if(done && o.id===q.answerId) cls += " is-correct";
+    else if(tried) cls += " is-wrong";
+    var disabled = done || (tried && o.id!==q.answerId);
+    var explain = (tried && o.id!==q.answerId) ? o.explain : (done && o.id===q.answerId ? q.reason : "");
+    return '<button class="'+cls+'" data-opt="'+o.id+'" '+(disabled?"disabled":"")+' onclick="pick(\''+p.id+'\',\''+o.id+'\')">' +
       '<span class="opt-key">'+letter[o.id]+'</span>' +
       '<span class="opt-body"><span class="opt-label">'+o.label+'</span>' +
-      '<span class="opt-explain"></span></span></button>';
+      '<span class="opt-explain">'+explain+'</span></span></button>';
   }).join("");
-  var feedback = done ? '<div class="quiz-feedback show"><div class="fb-correct"><div class="fb-title">✓ 判断正确 · 路又向前了一点</div><div class="fb-body">'+q.reason+'</div></div></div>' : "";
+  var feedback = done
+    ? '<div class="quiz-feedback show" role="status"><div class="fb-correct"><div class="fb-title">✓ 判断成立 · 证据链向前了一步</div><div class="fb-body">'+q.reason+'</div></div></div>'
+    : (a.attempts.length ? '<div class="quiz-feedback show" role="status"><div class="fb-wrong"><div class="fb-title">这一步还不够稳</div><div class="fb-body">查看刚才选项下的原因，再用剩余证据判断。</div></div></div>' : "");
   var hintShown = a.hinted && !done;
   return '<div class="quiz" data-panel="'+p.id+'">' +
     '<div class="quiz-kicker">由你来判断 · 依据眼前证据</div>' +
     '<h2>'+q.prompt+'</h2>' +
     '<p class="quiz-score-note">首次独立答对计满分；纠错后答对计 60%；使用提示后答对计 30%。不比速度，关末汇总。</p>' +
     '<div class="options">'+opts+'</div>'+feedback+
-    '<div class="quiz-hint"><button onclick="showHint(\''+p.id+'\')">需要一点提示</button></div>' +
+    (done ? '' : '<div class="quiz-hint"><button aria-expanded="'+(a.hinted?"true":"false")+'" onclick="showHint(\''+p.id+'\')">需要一点提示</button></div>') +
     '<div class="hint-box '+(hintShown?"show":"")+'" id="hint-'+p.id+'">'+q.hint+'</div>' +
     (done ? '<div class="key-q">关键追问 · '+q.keyQuestion+'</div>' : "") +
     '</div>';
@@ -590,6 +670,7 @@ function renderNav(p){
 function pick(panelId, optId){
   var a = state.answers[panelId] || {attempts:[],acknowledged:false,hinted:false};
   if(a.acknowledged) return;
+  if(a.attempts.indexOf(optId)>-1) return;
   a.attempts.push(optId);
   var p = PANELS.find(function(x){return x.id===panelId;});
   if(optId === p.quiz.answerId) a.acknowledged = true;
@@ -601,8 +682,9 @@ function pick(panelId, optId){
 function showHint(panelId){
   var a = state.answers[panelId] || {attempts:[],acknowledged:false,hinted:false};
   a.hinted = true; state.answers[panelId] = a; save();
+  renderReader();
   var hb = document.getElementById("hint-"+panelId);
-  if(hb) hb.classList.add("show");
+  if(hb) hb.scrollIntoView({behavior:"smooth",block:"center"});
 }
 function nextPage(){
   var p = PANELS[state.cursor];
@@ -610,21 +692,23 @@ function nextPage(){
   if(state.cursor < PANELS.length - 1){
     state.cursor++;
     state.furthest = Math.max(state.furthest, state.cursor);
-    save(); renderReader(); window.scrollTo({top:0,behavior:"smooth"});
+    save(); renderReader(); window.scrollTo({top:0,behavior:"smooth"}); focusPageHeading();
   }
 }
 function prevPage(){
-  if(state.cursor > 0){ state.cursor--; save(); renderReader(); window.scrollTo({top:0,behavior:"smooth"}); }
+  if(state.cursor > 0){ state.cursor--; save(); renderReader(); window.scrollTo({top:0,behavior:"smooth"}); focusPageHeading(); }
 }
 function toggleClues(){
   var collected = Object.keys(state.answers).filter(function(id){return state.answers[id].acknowledged;})
     .map(function(id){ var p = PANELS.find(function(x){return x.id===id;}); return {t:p.title, r:p.reveal.title}; });
-  if(collected.length){
-    alert("线索本（已收集 " + collected.length + " 条）\n\n" + collected.map(function(c,i){return (i+1) + ". " + c.t + " → " + c.r;}).join("\n"));
-  } else {
-    alert("还没有收集到线索。答对判断题后会自动记入。");
-  }
+  var body = document.getElementById("clueDialogBody");
+  body.innerHTML = collected.length
+    ? '<ol class="clue-list">'+collected.map(function(c,i){return '<li><b>'+(i+1)+'. '+c.t+'</b><span>'+c.r+'</span></li>';}).join("")+'</ol>'
+    : '<p class="clue-empty">还没有确认任何判断。完成推理题后，证据会自动收进这里。</p>';
+  var dialog = document.getElementById("clueDialog");
+  if(typeof dialog.showModal==="function") dialog.showModal(); else dialog.setAttribute("open","");
 }
+function closeClues(){ document.getElementById("clueDialog").close(); }
 
 function computeScore(){
   var first=0, corrected=0, hinted=0, total=0;
@@ -632,8 +716,8 @@ function computeScore(){
     var a = state.answers[p.id]; if(!a) return; total++;
     if(a.attempts.indexOf(p.quiz.answerId) > -1 && a.acknowledged){
       var wrong = a.attempts.some(function(x){return x !== p.quiz.answerId;});
-      if(wrong) corrected++;
-      else if(a.hinted) hinted++;
+      if(a.hinted) hinted++;
+      else if(wrong) corrected++;
       else first++;
     }
   });
